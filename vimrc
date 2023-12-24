@@ -168,6 +168,7 @@ tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
 " Signify
 set updatetime=1000
+let g:signify_disable_by_default = 1 " for WSL2
 nnoremap <leader>gd :SignifyDiff<cr>
 nnoremap <leader>gp :SignifyHunkDiff<cr>
 nnoremap <leader>gu :SignifyHunkUndo<cr>
