@@ -25,6 +25,7 @@ filetype on			" 开始文件类型侦测
 filetype plugin on	" 加载对应文件类型插件
 filetype indent on 	" 自适应不同语言的智能缩进
 
+set fillchars=eob:\ ,vert:\⎜,fold:-
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936	" 自动识别编码格式, 逗号分割不加空格
 set tags=./tags;,./TAGS,tags,TAGS
 
@@ -90,6 +91,9 @@ if !has('gui_running')
     set t_Co=256
 endif
 
+let g:filenameAndMethod = '%{LightlineFilename()}'.
+            \ '%#LightlineLeft_active_0_1#%{NearestMethodOrFunction()}'.
+            \ '%#LightlineLeft_active_1#'
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
@@ -97,11 +101,11 @@ let g:lightline = {
       \ },
       \ 'component': {
       \   'lineinfo': '%3l:%-2v%<',
+      \   'filenameAndMethod': filenameAndMethod,
       \ },
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
       \   'method': 'NearestMethodOrFunction',
-      \   'filenameAndMethod': 'FilenameAndMethod'
       \ },
       \ }
 
@@ -115,11 +119,7 @@ endfunction
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 function! NearestMethodOrFunction() abort
     let method = get(b:, 'vista_nearest_method_or_function', '')
-    return method != '' ? '  '.method : method
-endfunction
-
-function! FilenameAndMethod()
-    return LightlineFilename().NearestMethodOrFunction()
+    return method != '' ? '   '.method : method
 endfunction
 
 " gruvbox
@@ -206,6 +206,7 @@ noremap f :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 noremap go :<C-U>Leaderf! rg --recall<CR>
 
 " fern
+let g:fern#hide_cursor = 1
 let g:fern#mark_symbol                       = '●'
 let g:fern#renderer#default#collapsed_symbol = '▷  '
 let g:fern#renderer#default#expanded_symbol  = '▼  '
