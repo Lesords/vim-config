@@ -124,14 +124,14 @@ endfunction
 
 " gruvbox
 set background=dark
-let g:gruvbox_contrast_dark = 'medium'
 set signcolumn=yes
-let g:gruvbox_sign_column = 'bg0'
+let g:gruvbox_contrast_dark    = 'medium'
+let g:gruvbox_sign_column      = 'bg0'
 let g:gruvbox_invert_selection = 0
 colorscheme gruvbox	
 
 " rainbow
-let g:rainbow_active = 1
+let g:rainbow_active          = 1
 let g:rainbow_load_separately = [
     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
     \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
@@ -139,14 +139,14 @@ let g:rainbow_load_separately = [
     \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
     \ ]
 
-let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_guifgs   = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 
 " indentLine
-let g:indentLine_color_term = 239
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:vim_json_conceal=0
-let g:markdown_syntax_conceal=0
+let g:indentLine_color_term   = 239
+let g:indentLine_char_list    = ['|', '¦', '┆', '┊']
+let g:vim_json_conceal        = 0
+let g:markdown_syntax_conceal = 0
 
 " vim-commentary
 autocmd FileType apache setlocal commentstring=#\ %s
@@ -180,23 +180,14 @@ omap ac <plug>(signify-motion-outer-pending)
 xmap ac <plug>(signify-motion-outer-visual)
 
 " vim-cpp-modern
-" Disable function highlighting (affects both C and C++ files)j
-let g:cpp_function_highlight = 1
+" Disable function highlighting
+let g:cpp_function_highlight   = 1
 " Enable highlighting of C++11 attributes
 let g:cpp_attributes_highlight = 1
-" Highlight struct/class member variables (affects both C and C++ files)
-let g:cpp_member_highlight = 1
+" Highlight struct/class member variables
+let g:cpp_member_highlight     = 1
 " Put all standard C and C++ keywords under Vim's highlight group 'Statement'
-" (affects both C and C++ files)
-let g:cpp_simple_highlight = 1
-
-nnoremap <leader>lg :FloatermNew --width=0.8 lazygit<cr>
-
-noremap <silent> m :Fern . -drawer -toggle<cr>
-noremap <silent> p :UndotreeToggle<cr>
-noremap <silent> n :Vista!!<cr>
-nnoremap   <silent>   o  :FloatermToggle<CR>
-tnoremap   <silent>   o   <C-\><C-n>:FloatermToggle<CR>
+let g:cpp_simple_highlight     = 1
 
 " LeaderF
 let g:Lf_WindowPosition = 'popup'
@@ -206,21 +197,14 @@ noremap f :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 noremap go :<C-U>Leaderf! rg --recall<CR>
 
 " fern
-let g:fern#hide_cursor = 1
+let g:fern#hide_cursor                       = 1
 let g:fern#mark_symbol                       = '●'
 let g:fern#renderer#default#collapsed_symbol = '▷  '
 let g:fern#renderer#default#expanded_symbol  = '▼  '
 let g:fern#renderer#default#leading          = ' '
 let g:fern#renderer#default#leaf_symbol      = ' '
 let g:fern#renderer#default#root_symbol      = '~ '
-
-let g:fern#renderer = "nerdfont"
-
-augroup my-glyph-palette
-    autocmd! *
-    autocmd FileType fern call glyph_palette#apply()
-    autocmd FileType nerdtree,startify call glyph_palette#apply()
-augroup END
+let g:fern#renderer                          = "nerdfont"
 
 function! s:init_fern() abort
     nmap <buffer><expr>
@@ -253,6 +237,13 @@ augroup fern-custom
                 \ call s:init_fern()
 augroup END
 
+" glyph-palette (for fern)
+augroup my-glyph-palette
+    autocmd! *
+    autocmd FileType fern call glyph_palette#apply()
+    autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+
 " Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
@@ -260,10 +251,10 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
 " vim-multiple-cursors
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<C-j>'
+let g:multi_cursor_next_key = '<C-n>'
+let g:multi_cursor_prev_key = '<C-p>'
+let g:multi_cursor_skip_key = '<C-x>'
+let g:multi_cursor_quit_key = '<C-j>'
 
 " ale
 let b:ale_linters = {'c': ['gcc', 'cppcheck'], 'cpp': ['gcc', 'cppcheck'] }
@@ -281,3 +272,13 @@ let g:ycm_semantic_triggers =  {
             \ }
 let g:ycm_key_invoke_completion = '<C-h>'
 set completeopt=menu,menuone
+
+" shortcuts
+nnoremap <leader>lg :FloatermNew --width=0.8 lazygit<cr>
+
+noremap  <silent> m :Fern . -drawer -toggle -reveal=%<cr>
+inoremap <silent> m <C-o>:Fern . -drawer -toggle -reveal=% -stay<cr>
+noremap  <silent> p :UndotreeToggle<cr>
+noremap  <silent> n :Vista!!<cr>
+nnoremap <silent> o  :FloatermToggle<CR>
+tnoremap <silent> o   <C-\><C-n>:FloatermToggle<CR>
