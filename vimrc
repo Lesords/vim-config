@@ -53,6 +53,8 @@ vnoremap <C-j> <esc>
 map ,* *<C-O>:%s///gn<CR>
 command -nargs=1 Count :%s/<args>//gn
 
+nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
+
 
 
 call plug#begin('~/.config/vim/plugged') 
