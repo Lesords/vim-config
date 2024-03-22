@@ -46,6 +46,9 @@ noremap gp  <C-^>
 noremap <C-q> :q<CR>
 noremap <C-s> :w<CR>
 inoremap <C-s> <esc>:w<CR>
+noremap q :q<CR>
+noremap s :w<CR>
+inoremap s <esc>:w<CR>
 inoremap <C-j> <esc>
 vnoremap <C-j> <esc>
 
