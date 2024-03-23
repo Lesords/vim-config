@@ -25,7 +25,12 @@ filetype on			" 开始文件类型侦测
 filetype plugin on	" 加载对应文件类型插件
 filetype indent on 	" 自适应不同语言的智能缩进
 
-set fillchars=eob:\ ,vert:\⎜,fold:-
+if v:version < 802
+    set fillchars=vert:\⎜,fold:-
+else
+    set fillchars=eob:\ ,vert:\⎜,fold:-
+endif
+
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936	" 自动识别编码格式, 逗号分割不加空格
 set tags=./tags;,./TAGS,tags,TAGS
 
@@ -72,7 +77,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'frazrepo/vim-rainbow' " so slow
 
 " Plug 'dense-analysis/ale' " slow bug
-Plug 'ycm-core/YouCompleteMe'
+
+if ( v:version >= 802 && has( 'patch3995') )
+    Plug 'ycm-core/YouCompleteMe'
+endif
 
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-commentary'
