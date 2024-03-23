@@ -46,6 +46,7 @@ tnoremap h <C-w>h
 tnoremap j <C-w>j
 tnoremap k <C-w>k
 tnoremap l <C-w>l
+tnoremap n <C-w>N
 
 noremap gp  <C-^>
 noremap <C-q> :q<CR>
@@ -171,8 +172,13 @@ autocmd FileType python,shell,coffee set commentstring=#\ %s
 autocmd FileType java,c,cpp set commentstring=//\ %s
 
 " vim-floaterm
-let floaterm_wintype = 'popup'    " 'popup' work for vim8.2, 'split' for others
-let floaterm_height = 0.8
+if v:version >= 802
+    let floaterm_wintype = 'popup'
+    let floaterm_height = 0.8
+else
+    let floaterm_wintype = 'split'
+    let floaterm_height = 0.5
+endif
 
 nnoremap   <silent>   <F7>    :FloatermNew<CR>
 tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
