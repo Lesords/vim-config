@@ -68,6 +68,20 @@ command -nargs=1 Count :%s/<args>//gn
 
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
+noremap <silent> i :call ChangeLineStyle()<CR>
+let g:linestyle = 'yes'
+function! ChangeLineStyle()
+    if g:linestyle == 'yes'
+        let g:linestyle = 'no'
+        set nonumber
+        set signcolumn=no
+    else
+        let g:linestyle = 'yes'
+        set number
+        set signcolumn=yes
+    endif
+endfunction
+
 
 
 call plug#begin('~/.config/vim/plugged') 
