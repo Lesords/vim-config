@@ -68,6 +68,12 @@ command -nargs=1 Count :%s/<args>//gn
 
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
+let g:cwd = getcwd(-1)
+noremap <silent> t :call ChangeCurrentPath()<CR>
+function! ChangeCurrentPath()
+    execute 'cd' g:cwd
+endfunction
+
 noremap <silent> i :call ChangeLineStyle()<CR>
 let g:linestyle = 'yes'
 function! ChangeLineStyle()
