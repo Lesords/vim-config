@@ -273,6 +273,8 @@ function! s:init_fern() abort
     nmap <buffer> R gg<Plug>(fern-action-reload)<C-o>
     nmap <buffer> cd <Plug>(fern-action-cd)
     nmap <buffer> CD gg<Plug>(fern-action-cd)<C-o>
+
+    nmap <buffer> <LeftRelease> <Plug>(fern-action-open-or-expand)
 endfunction
 
 augroup fern-custom
