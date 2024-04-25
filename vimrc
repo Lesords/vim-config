@@ -237,6 +237,7 @@ let g:cpp_simple_highlight     = 1
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PopupWidth = 0.45
 noremap <leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+noremap <leader>s :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -e \"%s\"", input("Please enter: "))<CR>
 noremap f :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 noremap go :<C-U>Leaderf! rg --recall<CR>
 
