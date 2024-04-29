@@ -212,9 +212,11 @@ tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 " Signify
 set updatetime=1000
 let g:signify_disable_by_default = 1 " for WSL2
-nnoremap <leader>gd :SignifyDiff<cr>
-nnoremap <leader>gp :SignifyHunkDiff<cr>
-nnoremap <leader>gu :SignifyHunkUndo<cr>
+nnoremap <silent> d :SignifyToggle<cr>
+inoremap <silent> d :SignifyToggle<cr>
+nnoremap <silent> <leader>gd :SignifyDiff<cr>
+nnoremap <silent> <leader>gp :SignifyHunkDiff<cr>
+nnoremap <silent> <leader>gu :SignifyHunkUndo<cr>
 nmap     <leader>gj <plug>(signify-next-hunk)
 nmap     <leader>gk <plug>(signify-prev-hunk)
 " hunk text object
@@ -302,6 +304,16 @@ let g:multi_cursor_next_key = '<C-n>'
 let g:multi_cursor_prev_key = '<C-p>'
 let g:multi_cursor_skip_key = '<C-x>'
 let g:multi_cursor_quit_key = '<C-j>'
+
+" vim-easymotion
+let g:EasyMotion_do_mapping = 0
+nmap s <Plug>(easymotion-overwin-f2)
+
+map  <leader>/ <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " ale
 let b:ale_linters = {'c': ['gcc', 'cppcheck'], 'cpp': ['gcc', 'cppcheck'] }
