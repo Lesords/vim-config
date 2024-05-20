@@ -197,7 +197,7 @@ if v:version >= 802
     let floaterm_height = 0.8
 else
     let floaterm_wintype = 'split'
-    let floaterm_height = 0.5
+    let floaterm_height = 0.36
 endif
 
 nnoremap   <silent>   <F7>    :FloatermNew<CR>
