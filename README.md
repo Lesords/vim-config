@@ -15,6 +15,100 @@ cd ~
 git clone git@github.com:Lesords/vim-config.git ~/.vim
 ```
 
+# Keymaps
+
+## General
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | Alt + h       | Go to left window |
+| Normal | Alt + j       | Go to downer window |
+| Normal | Alt + k       | Go to upper window |
+| Normal | Alt + l       | Go to right window |
+| Terminal | Alt + h       | Go to left window |
+| Terminal | Alt + j       | Go to downer window |
+| Terminal | Alt + k       | Go to upper window |
+| Terminal | Alt + l       | Go to right window |
+| Normal | gp            | Return to the previous file |
+| Normal | Ctrl + s      | Save file |
+| Normal | Ctrl + q      | Quit     |
+| Normal | Alt + s      | Save file |
+| Normal | Alt + q      | Quit       |
+| Normal | Tab           | Switch to next tab |
+| Normal | Backspace | Switch to the previous tab |
+| Normal | T | New Tab |
+| Normal | ,\* | Count the number of occurrences of the current field |
+| Normal | ,c | Toggle conceal level |
+| Normal | Alt + t | Return to the original path |
+| Normal | Alt + i | Switch line style |
+
+## Plugin
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | F7       | Create a new terminal |
+| Normal | F8       | Switch to the previous terminal |
+| Normal | F9       | Switch to the next terminal |
+| Normal | F12       | Toggle Terminal |
+| Normal | Alt + d       | Toggle Signify |
+| Normal | ,gd       | Create a new tab to compare changes |
+| Normal | ,gp       | Use a float window to compare changes |
+| Normal | ,gu       | Restore the contents of the current line |
+| Normal | ,gj       | Jump to the last modified location |
+| Normal | ,gk       | Jump to the next modified position |
+| Operation | ic       | Cover modification range |
+| Operation | ac       | Cover modification range |
+| Visual | ic       | Cover modification range |
+| Visual | ac       | Cover modification range |
+| Normal | ,ff       | Search for files |
+| Normal | ,fb       | Search Cache |
+| Normal | ,fm       | Search History |
+| Normal | ,fl       | Search Line |
+| Normal | ,fa       | Search the current field（In all caches） |
+| Normal | ,fc       | Search the current field（c/cpp related files only） |
+| Normal | ,fs       | Search (input required) |
+| Normal | Alt + f       | Search the current field |
+| Visual | gf       | Search the current field |
+| Normal | go       | Execute the last search operation again |
+| Normal | ,fg       | Generate gtag files |
+| Normal | ,fr       | Jump to reference |
+| Normal | ,fd      | Jump to definition |
+| Normal | ,fo      | Execute the jump operation again |
+| Normal | ,fn      | Jump to the next matching result |
+| Normal | ,fp      | Jump to the previous matching result |
+| Fern | o      | Toggle Folder |
+| Fern | h      | Close Folder |
+| Fern | l      | Expand folder (open file) |
+| Fern | !     | Show (disable) hidden files |
+| Fern | N     | create a new file |
+| Fern | t     | Open in a new tab |
+| Fern | T     | Open in a new tab (background) |
+| Fern | i     | Open the file in the upper window |
+| Fern | gi    | Open the file in the upper window (background) |
+| Fern | s     | Open the file in the left window |
+| Fern | gs    | Open the file in the left window (background) |
+| Fern | <     | Go to the previous directory |
+| Fern | >      | Enter the current directory |
+| Fern | BackSpace     | Go to the previous directory |
+| Fern | Enter      | Enter the current directory |
+| Fern | r     | Reload the file |
+| Fern | cd    | Modify the current path |
+| Normal | ,a=    | Align text according to = |
+| Normal | ,a:    | Align text according to : |
+| MultiCursor | Ctrl + n    | Start selecting the (next) text |
+| MultiCursor | Ctrl + p    | Return to previous text |
+| MultiCursor | Ctrl + x    | Skip current text |
+| MultiCursor | Ctrl + j    | Exit MultiCursor Mode |
+| EasyMotion | s    | Position jump (two characters) |
+| EasyMotion | ,/    | Location jump (text search) |
+| EasyMotion | ,j    | Jump up |
+| EasyMotion | ,k    | Jump down |
+| Normal | ,lg    | Open lazygit |
+| Normal | Alt + m    | Open Fern |
+| Normal | Alt + p   | Open UndoTree |
+| Normal | Alt + n   | Open Vista |
+| Normal | Alt + o   | Open Floaterm |
+
 # Screenshots
 
 ![vim](https://raw.githubusercontent.com/Lesords/ImageHost/main/Repository/vim-config/vim.png)
