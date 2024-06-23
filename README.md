@@ -41,15 +41,56 @@ git clone git@github.com:Lesords/vim-config.git ~/.vim
 | Normal | ,c | Toggle conceal level |
 | Normal | Alt + t | Return to the original path |
 | Normal | Alt + i | Switch line style |
+| Normal | ,lg    | Open lazygit |
+| Normal | Alt + m    | Open Fern |
+| Normal | Alt + p   | Open UndoTree |
+| Normal | Alt + n   | Open Vista |
+| Normal | Alt + o   | Open Floaterm |
 
-## Plugin
+## Fern
+
+| Shortcut Keys | Action         |
+| ------------- | -------------- |
+| o      | Toggle Folder |
+| h      | Close Folder |
+| l      | Expand folder (open file) |
+| !     | Show (disable) hidden files |
+| N     | create a new file |
+| t     | Open in a new tab |
+| T     | Open in a new tab (background) |
+| i     | Open the file in the upper window |
+| gi    | Open the file in the upper window (background) |
+| s     | Open the file in the left window |
+| gs    | Open the file in the left window (background) |
+| <     | Go to the previous directory |
+| >      | Enter the current directory |
+| BackSpace     | Go to the previous directory |
+| Enter      | Enter the current directory |
+| r     | Reload the file |
+| cd    | Modify the current path |
+
+## EasyMotion
+
+| Shortcut Keys | Action         |
+| ------------- | -------------- |
+| s    | Position jump (two characters) |
+| ,/    | Location jump (text search) |
+| ,j    | Jump up |
+| ,k    | Jump down |
+
+## Multiple Cursors
+
+| Shortcut Keys | Action         |
+| ------------- | -------------- |
+| Ctrl + n    | Start selecting the (next) text |
+| Ctrl + p    | Return to previous text |
+| Ctrl + x    | Skip current text |
+| Ctrl + j    | Exit MultiCursor Mode |
+
+## Signify
 
 | Mode   | Shortcut Keys | Action         |
 | ------ | ------------- | -------------- |
-| Normal | F7       | Create a new terminal |
-| Normal | F8       | Switch to the previous terminal |
-| Normal | F9       | Switch to the next terminal |
-| Normal | F12       | Toggle Terminal |
 | Normal | Alt + d       | Toggle Signify |
 | Normal | ,gd       | Create a new tab to compare changes |
 | Normal | ,gp       | Use a float window to compare changes |
@@ -60,6 +101,20 @@ git clone git@github.com:Lesords/vim-config.git ~/.vim
 | Operation | ac       | Cover modification range |
 | Visual | ic       | Cover modification range |
 | Visual | ac       | Cover modification range |
+
+## Tabularize
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | ,a=    | Align text according to = |
+| Normal | ,a:    | Align text according to : |
+| Visual | ,a=    | Align text according to = |
+| Visual | ,a:    | Align text according to : |
+
+## LeaderF
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
 | Normal | ,ff       | Search for files |
 | Normal | ,fb       | Search Cache |
 | Normal | ,fm       | Search History |
@@ -76,38 +131,15 @@ git clone git@github.com:Lesords/vim-config.git ~/.vim
 | Normal | ,fo      | Execute the jump operation again |
 | Normal | ,fn      | Jump to the next matching result |
 | Normal | ,fp      | Jump to the previous matching result |
-| Fern | o      | Toggle Folder |
-| Fern | h      | Close Folder |
-| Fern | l      | Expand folder (open file) |
-| Fern | !     | Show (disable) hidden files |
-| Fern | N     | create a new file |
-| Fern | t     | Open in a new tab |
-| Fern | T     | Open in a new tab (background) |
-| Fern | i     | Open the file in the upper window |
-| Fern | gi    | Open the file in the upper window (background) |
-| Fern | s     | Open the file in the left window |
-| Fern | gs    | Open the file in the left window (background) |
-| Fern | <     | Go to the previous directory |
-| Fern | >      | Enter the current directory |
-| Fern | BackSpace     | Go to the previous directory |
-| Fern | Enter      | Enter the current directory |
-| Fern | r     | Reload the file |
-| Fern | cd    | Modify the current path |
-| Normal | ,a=    | Align text according to = |
-| Normal | ,a:    | Align text according to : |
-| MultiCursor | Ctrl + n    | Start selecting the (next) text |
-| MultiCursor | Ctrl + p    | Return to previous text |
-| MultiCursor | Ctrl + x    | Skip current text |
-| MultiCursor | Ctrl + j    | Exit MultiCursor Mode |
-| EasyMotion | s    | Position jump (two characters) |
-| EasyMotion | ,/    | Location jump (text search) |
-| EasyMotion | ,j    | Jump up |
-| EasyMotion | ,k    | Jump down |
-| Normal | ,lg    | Open lazygit |
-| Normal | Alt + m    | Open Fern |
-| Normal | Alt + p   | Open UndoTree |
-| Normal | Alt + n   | Open Vista |
-| Normal | Alt + o   | Open Floaterm |
+
+## Floaterm
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | F7       | Create a new terminal |
+| Normal | F8       | Switch to the previous terminal |
+| Normal | F9       | Switch to the next terminal |
+| Normal | F12       | Toggle Terminal |
 
 # Screenshots
 
