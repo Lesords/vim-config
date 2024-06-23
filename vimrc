@@ -88,6 +88,10 @@ function! ChangeLineStyle()
     endif
 endfunction
 
+let g:cocEnabled = 'no'
+if ( system('which clangd') != "" && system('which node') != "" )
+    let g:cocEnabled = 'yes'
+endif
 
 
 call plug#begin('~/.config/vim/plugged') 
@@ -100,7 +104,13 @@ Plug 'frazrepo/vim-rainbow' " so slow
 " Plug 'dense-analysis/ale' " slow bug
 
 if ( v:version >= 802 && has( 'patch3995') )
-    Plug 'ycm-core/YouCompleteMe'
+    if ( g:cocEnabled == 'no' )
+        Plug 'ycm-core/YouCompleteMe'
+    endif
+endif
+
+if ( g:cocEnabled == 'yes' )
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
 
 Plug 'mhinz/vim-signify'
@@ -256,6 +266,7 @@ noremap <silent> <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump
 noremap <silent> <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 noremap <silent> <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 noremap <silent> <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+" let g:Lf_Gtagsconf="$HOME/.local/share/gtags/gtags.conf"
 
 " fern
 let g:fern#hide_cursor                       = 1
@@ -355,3 +366,54 @@ noremap  <silent> p :UndotreeToggle<cr>
 noremap  <silent> n :Vista!!<cr>
 nnoremap <silent> o  :FloatermToggle<CR>
 tnoremap <silent> o   <C-\><C-n>:FloatermToggle<CR>
+
+" coc.nvim
+if ( g:cocEnabled == "yes" )
+    " use <tab> to trigger completion and navigate to the next complete item
+    function! CheckBackspace() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+    inoremap <silent><expr> <Tab>
+                \ coc#pum#visible() ? coc#pum#next(1) :
+                \ CheckBackspace() ? "\<Tab>" :
+                \ coc#refresh()
+
+    " Mappings for CoCList
+    " Show all diagnostics
+    nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+    " Manage extensions
+    nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+    " Show commands
+    nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+    " Find symbol of current document
+    nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+    " Search workspace symbols
+    nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+    " Do default action for next item
+    nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+    " Do default action for previous item
+    nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+    " Resume latest coc list
+    nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+
+    nmap <space>cl  <Plug>(coc-codelens-action)
+    nmap <leader>qf  <Plug>(coc-fix-current)
+
+    " Use K to show documentation in preview window
+    nnoremap <silent> K :call ShowDocumentation()<CR>
+
+    function! ShowDocumentation()
+        if CocAction('hasProvider', 'hover')
+            call CocActionAsync('doHover')
+        else
+            call feedkeys('K', 'in')
+        endif
+    endfunction
+endif
