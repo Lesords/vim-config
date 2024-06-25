@@ -369,6 +369,8 @@ tnoremap <silent> o   <C-\><C-n>:FloatermToggle<CR>
 
 " coc.nvim
 if ( g:cocEnabled == "yes" )
+    let g:coc_disable_startup_warning = 1
+
     " use <tab> to trigger completion and navigate to the next complete item
     function! CheckBackspace() abort
         let col = col('.') - 1
