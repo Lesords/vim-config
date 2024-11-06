@@ -25,6 +25,10 @@ filetype on			" 开始文件类型侦测
 filetype plugin on	" 加载对应文件类型插件
 filetype indent on 	" 自适应不同语言的智能缩进
 
+if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
+    let &pythonthreedll='/c/Python312/python312.dll' " PE32+ executable (DLL) (GUI) x86-64, for MS Windows, 7 sections
+endif
+
 if v:version < 802
     set fillchars=vert:\⎜,fold:-
 else
