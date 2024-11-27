@@ -92,6 +92,21 @@ function! ChangeLineStyle()
     endif
 endfunction
 
+noremap <silent> ,i :call ChangeIndentation()<CR>
+function! ChangeIndentation()
+    let shiftwidth_value = &shiftwidth
+
+    if ( shiftwidth_value == 4 )
+        set tabstop=2
+        set shiftwidth=2
+        echo "switch to 2 space mode"
+    else
+        set tabstop=4
+        set shiftwidth=4
+        echo "switch to 4 space mode"
+    endif
+endfunction
+
 let g:cocEnabled = 'no'
 if ( system('which clangd') != "" && system('which node') != "" )
     let g:cocEnabled = 'yes'

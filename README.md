@@ -41,6 +41,7 @@ git clone git@github.com:Lesords/vim-config.git ~/.vim
 | Normal | ,c | Toggle conceal level |
 | Normal | Alt + t | Return to the original path |
 | Normal | Alt + i | Switch line style |
+| Normal | ,i | Switch indent size |
 | Normal | ,lg    | Open lazygit |
 | Normal | Alt + m    | Open Fern |
 | Normal | Alt + p   | Open UndoTree |
