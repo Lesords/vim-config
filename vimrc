@@ -111,6 +111,17 @@ function! ChangeIndentation()
     endif
 endfunction
 
+noremap <silent> ,t :call ChangeTab()<CR>
+function! ChangeTab()
+    if &expandtab
+        set noet|retab!
+        echo "Change space to tab"
+    else
+        set et|retab
+        echo "Change tab to space"
+    endif
+endfunction
+
 let g:cocEnabled = 'no'
 if ( system('which clangd') != "" && system('which node') != "" )
     let g:cocEnabled = 'yes'
