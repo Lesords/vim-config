@@ -143,6 +143,13 @@ git clone git@github.com:Lesords/vim-config.git ~/.vim
 | Normal | F9       | Switch to the next terminal |
 | Normal | F12       | Toggle Terminal |
 
+## Clang Format
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | Ctrl + k      | Format all code |
+| Visual | Ctrl + k      | Format the currently selected code |
+
 # Screenshots
 
 ![vim](https://raw.githubusercontent.com/Lesords/ImageHost/main/Repository/vim-config/vim.png)

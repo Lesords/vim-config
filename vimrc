@@ -153,6 +153,7 @@ Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
+Plug 'rhysd/vim-clang-format'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 Plug 'lambdalisue/fern.vim'
@@ -453,3 +454,7 @@ if ( g:cocEnabled == "yes" )
         endif
     endfunction
 endif
+
+" vim-clang-format
+autocmd FileType c,cpp,objc noremap <silent> <C-k> :ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <silent> <C-k> :ClangFormat<CR>
