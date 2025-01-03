@@ -244,6 +244,7 @@ else
     let floaterm_wintype = 'split'
     let floaterm_height = 0.36
 endif
+let g:floaterm_shell = 'bash --login'
 
 nnoremap   <silent>   <F7>    :FloatermNew<CR>
 tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
