@@ -12,7 +12,15 @@ This is my vim configuration
 
 ```bash
 cd ~
-git clone git@github.com:Lesords/vim-config.git ~/.vim
+git clone git@github.com:Lesords/vim-config.git ~/.vim --depth 1 --recurse-submodules --shallow-submodules
+```
+
+Or
+
+```bash
+cd ~
+git clone git@github.com:Lesords/vim-config.git ~/.vim --depth=1
+git submodule update --init --recursive --depth 1
 ```
 
 # Keymaps
