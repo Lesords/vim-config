@@ -1,0 +1,63 @@
+[submodule "gruvbox"]
+	path = plugged/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "indentLine"]
+	path = plugged/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule "vim-rainbow"]
+	path = plugged/vim-rainbow
+	url = https://github.com/frazrepo/vim-rainbow.git
+[submodule "vim-startify"]
+	path = plugged/vim-startify
+	url = https://github.com/mhinz/vim-startify.git
+[submodule "lightline.vim"]
+	path = plugged/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "fern-renderer-nerdfont.vim"]
+	path = plugged/fern-renderer-nerdfont.vim
+	url = https://github.com/lambdalisue/fern-renderer-nerdfont.vim.git
+[submodule "fern.vim"]
+	path = plugged/fern.vim
+	url = https://github.com/lambdalisue/fern.vim.git
+[submodule "glyph-palette.vim"]
+	path = plugged/glyph-palette.vim
+	url = https://github.com/lambdalisue/glyph-palette.vim.git
+[submodule "nerdfont.vim"]
+	path = plugged/nerdfont.vim
+	url = https://github.com/lambdalisue/nerdfont.vim.git
+[submodule "undotree"]
+	path = plugged/undotree
+	url = https://github.com/mbbill/undotree.git
+[submodule "vista.vim"]
+	path = plugged/vista.vim
+	url = https://github.com/liuchengxu/vista.vim.git
+[submodule "LeaderF"]
+	path = plugged/LeaderF
+	url = https://github.com/Yggdroot/LeaderF.git
+[submodule "vim-floaterm"]
+	path = plugged/vim-floaterm
+	url = https://github.com/voldikss/vim-floaterm.git
+[submodule "vim-signify"]
+	path = plugged/vim-signify
+	url = https://github.com/mhinz/vim-signify.git
+[submodule "vim-commentary"]
+	path = plugged/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim-surround"]
+	path = plugged/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim-easymotion"]
+	path = plugged/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion.git
+[submodule "vim-multiple-cursors"]
+	path = plugged/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "tabular"]
+	path = plugged/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "coc.nvim"]
+	path = plugged/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+[submodule "vim-clang-format"]
+	path = plugged/vim-clang-format
+	url = https://github.com/rhysd/vim-clang-format.git

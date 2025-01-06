@@ -128,7 +128,7 @@ if ( system('which clangd') != "" && system('which node') != "" )
 endif
 
 
-call plug#begin('~/.config/vim/plugged') 
+call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
