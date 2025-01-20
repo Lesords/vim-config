@@ -129,7 +129,6 @@ endif
 
 
 call plug#begin('~/.vim/plugged')
-Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
@@ -162,7 +161,10 @@ Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 
 Plug 'mbbill/undotree'
-Plug 'liuchengxu/vista.vim'
+if !exists('$MSYSTEM')
+    Plug 'mhinz/vim-startify'
+    Plug 'liuchengxu/vista.vim'
+endif
 
 Plug 'voldikss/vim-floaterm'
 call plug#end()
@@ -199,7 +201,9 @@ function! LightlineFilename()
 endfunction
 
 " vista in lightline
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+if !exists('$MSYSTEM')
+    autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+endif
 function! NearestMethodOrFunction() abort
     let method = get(b:, 'vista_nearest_method_or_function', '')
     return method != '' ? '   '.method : method
