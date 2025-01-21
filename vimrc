@@ -462,8 +462,8 @@ if ( g:cocEnabled == "yes" )
 endif
 
 " vim-clang-format
-autocmd FileType c,cpp,objc noremap <silent> <C-k> :ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <silent> <C-k> :ClangFormat<CR>
+autocmd FileType c,cpp,objc noremap <silent> <C-m> :ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
 
 " vim-tmux-navigator
 let g:tmux_navigator_no_wrap = 1

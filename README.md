@@ -155,8 +155,19 @@ git submodule update --init --recursive --depth 1
 
 | Mode   | Shortcut Keys | Action         |
 | ------ | ------------- | -------------- |
-| Normal | Ctrl + k      | Format all code |
-| Visual | Ctrl + k      | Format the currently selected code |
+| Normal | Ctrl + m      | Format all code |
+| Visual | Ctrl + m      | Format the currently selected code |
+
+## Code Motion
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | Alt + J       | Move code down |
+| Normal | Alt + K       | Move code up   |
+| INSERT | Alt + J       | Move code down |
+| INSERT | Alt + K       | Move code up   |
+| Visual | Alt + J       | Move code down |
+| Visual | Alt + K       | Move code up   |
 
 # Screenshots
 
