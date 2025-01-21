@@ -61,3 +61,6 @@
 [submodule "vim-clang-format"]
 	path = plugged/vim-clang-format
 	url = https://github.com/rhysd/vim-clang-format.git
+[submodule "vim-tmux-navigator"]
+	path = plugged/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git

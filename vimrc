@@ -167,6 +167,7 @@ if !exists('$MSYSTEM')
 endif
 
 Plug 'voldikss/vim-floaterm'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " lightline
@@ -463,3 +464,6 @@ endif
 " vim-clang-format
 autocmd FileType c,cpp,objc noremap <silent> <C-k> :ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <silent> <C-k> :ClangFormat<CR>
+
+" vim-tmux-navigator
+let g:tmux_navigator_no_wrap = 1
