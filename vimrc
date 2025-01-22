@@ -310,6 +310,10 @@ noremap <silent> <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", ""
 " let g:Lf_Gtagsconf="$HOME/.local/share/gtags/gtags.conf"
 
 " fern
+if !has('nvim') && !has('patch-8.2.5136')
+    let g:fern_disable_startup_warnings = 1
+endif
+
 let g:fern#hide_cursor                       = 1
 let g:fern#mark_symbol                       = '●'
 let g:fern#renderer#default#collapsed_symbol = '▷  '
