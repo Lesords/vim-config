@@ -31,6 +31,9 @@ if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
     elseif exists('$PC') && $PC == 'WORK'
         let &pythonthreedll='/c/Python312/python312.dll' " PE32+ executable (DLL) (GUI) x86-64, for MS Windows, 7 sections
     endif
+
+    nnoremap <silent> ,o :exec 'call system("start " . expand("%"))' <bar> echo 'Opening current file...' <CR>
+    nnoremap <silent> ,e :exec 'call system("start .")' <bar> echo 'Opening current path...' <CR>
 endif
 
 if v:version < 802

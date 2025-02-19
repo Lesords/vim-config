@@ -57,6 +57,13 @@ git submodule update --init --recursive --depth 1
 | Normal | Alt + n   | Open Vista |
 | Normal | Alt + o   | Open Floaterm |
 
+**Git Bash only**
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | ,o            | Open the current file with the system default tool |
+| Normal | ,e            | Open the current path with a file manager |
+
 ## Fern
 
 | Shortcut Keys | Action         |
