@@ -290,6 +290,9 @@ let g:cpp_member_highlight     = 1
 let g:cpp_simple_highlight     = 1
 
 " LeaderF
+if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
+    let g:Lf_CacheDirectory = $APPDATA
+endif
 let g:Lf_ShortcutF = "<leader>ff"
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PopupWidth = 0.45
