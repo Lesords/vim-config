@@ -99,6 +99,14 @@ function! ChangeLineStyle()
     endif
 endfunction
 
+function! PlainToggle()
+    let &cole=(&cole == 2) ? 0 : 2
+
+    call ChangeLineStyle()
+endfunction
+
+command! Plain call PlainToggle()
+
 noremap <silent> ,i :call ChangeIndentation()<CR>
 function! ChangeIndentation()
     let shiftwidth_value = &shiftwidth
