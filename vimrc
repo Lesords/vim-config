@@ -133,6 +133,15 @@ function! ChangeTab()
     endif
 endfunction
 
+noremap <silent> ,m :call WindowToggle()<CR>
+function! WindowToggle()
+    let fullHeight = &lines - 2
+    let fullWidth = &columns
+
+    execute 'resize' fullHeight
+    execute 'vertical resize' fullWidth
+endfunction
+
 let g:cocEnabled = 'no'
 if ( system('which clangd') != "" && system('which node') != "" )
     let g:cocEnabled = 'yes'
