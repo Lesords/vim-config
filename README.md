@@ -45,7 +45,7 @@ git submodule update --init --recursive --depth 1
 | Normal | Tab           | Switch to next tab |
 | Normal | Backspace | Switch to the previous tab |
 | Normal | T | New Tab |
-| Normal | ,m | Full screen |
+| Normal | ,m | Toggle full screen |
 | Normal | ,\* | Count the number of occurrences of the current field |
 | Normal | ,c | Toggle conceal level |
 | Normal | Alt + t | Return to the original path |
