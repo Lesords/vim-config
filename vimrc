@@ -134,12 +134,25 @@ function! ChangeTab()
 endfunction
 
 noremap <silent> ,m :call WindowToggle()<CR>
+let g:windowid = ''
+let g:windowtoggle = 'no'
 function! WindowToggle()
-    let fullHeight = &lines - 2
-    let fullWidth = &columns
+    if ( g:windowid != win_getid() )
+        let g:windowtoggle = 'no'
+    endif
 
-    execute 'resize' fullHeight
-    execute 'vertical resize' fullWidth
+    if ( g:windowtoggle == 'no' )
+        let g:windowid = win_getid()
+        let g:windowtoggle = 'yes'
+        let fullHeight = &lines - 2
+        let fullWidth = &columns
+
+        execute 'resize' fullHeight
+        execute 'vertical resize' fullWidth
+    else
+        let g:windowtoggle = 'no'
+        wincmd =
+    endif
 endfunction
 
 let g:cocEnabled = 'no'
