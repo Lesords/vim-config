@@ -42,7 +42,6 @@ git submodule update --init --recursive --depth 1
 | Normal | Ctrl + q      | Quit     |
 | Normal | Alt + s      | Save file |
 | Normal | Alt + q      | Quit       |
-| Normal | Tab           | Switch to next tab |
 | Normal | Backspace | Switch to the previous tab |
 | Normal | T | New Tab |
 | Normal | ,m | Toggle full screen |

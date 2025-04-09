@@ -69,7 +69,6 @@ inoremap s <esc>:w<CR>
 inoremap <C-j> <esc>
 vnoremap <C-j> <esc>
 
-nnoremap <Tab> gt
 nnoremap <BS> gT
 nnoremap <silent> T :tabnew<CR>
 
