@@ -78,26 +78,6 @@ command -nargs=1 Count :%s/<args>//gn
 
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
-let g:cwd = getcwd(-1)
-noremap <silent> t :call ChangeCurrentPath()<CR>
-function! ChangeCurrentPath()
-    execute 'cd' g:cwd
-endfunction
-
-noremap <silent> i :call ChangeLineStyle()<CR>
-let g:linestyle = 'yes'
-function! ChangeLineStyle()
-    if g:linestyle == 'yes'
-        let g:linestyle = 'no'
-        set nonumber
-        set signcolumn=no
-    else
-        let g:linestyle = 'yes'
-        set number
-        set signcolumn=yes
-    endif
-endfunction
-
 command! Plain call PlainToggle()
 function! PlainToggle()
     let &cole=(&cole == 2) ? 0 : 2
@@ -119,6 +99,26 @@ function! HexModeToggle()
         %!xxd
     endif
     let g:hexmode = !g:hexmode
+endfunction
+
+let g:cwd = getcwd(-1)
+noremap <silent> t :call ChangeCurrentPath()<CR>
+function! ChangeCurrentPath()
+    execute 'cd' g:cwd
+endfunction
+
+noremap <silent> i :call ChangeLineStyle()<CR>
+let g:linestyle = 'yes'
+function! ChangeLineStyle()
+    if g:linestyle == 'yes'
+        let g:linestyle = 'no'
+        set nonumber
+        set signcolumn=no
+    else
+        let g:linestyle = 'yes'
+        set number
+        set signcolumn=yes
+    endif
 endfunction
 
 noremap <silent> ,i :call ChangeIndentation()<CR>
