@@ -78,6 +78,8 @@ command -nargs=1 Count :%s/<args>//gn
 
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
+command! Reload source $MYVIMRC
+
 command! Plain call PlainToggle()
 function! PlainToggle()
     let &cole=(&cole == 2) ? 0 : 2
