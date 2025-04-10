@@ -110,6 +110,17 @@ function! ClearSpaceChar()
     %s/\s\+$//g
 endfunction
 
+command! Hexmode call HexModeToggle()
+let g:hexmode = 0
+function! HexModeToggle()
+    if g:hexmode
+        %!xxd -r
+    else
+        %!xxd
+    endif
+    let g:hexmode = !g:hexmode
+endfunction
+
 noremap <silent> ,i :call ChangeIndentation()<CR>
 function! ChangeIndentation()
     let shiftwidth_value = &shiftwidth
