@@ -98,13 +98,17 @@ function! ChangeLineStyle()
     endif
 endfunction
 
+command! Plain call PlainToggle()
 function! PlainToggle()
     let &cole=(&cole == 2) ? 0 : 2
 
     call ChangeLineStyle()
 endfunction
 
-command! Plain call PlainToggle()
+command! Strip call ClearSpaceChar()
+function! ClearSpaceChar()
+    %s/\s\+$//g
+endfunction
 
 noremap <silent> ,i :call ChangeIndentation()<CR>
 function! ChangeIndentation()
