@@ -86,6 +86,13 @@ git submodule update --init --recursive --depth 1
 | r     | Reload the file |
 | cd    | Modify the current path |
 
+## Expand Region
+
+| Shortcut Keys | Action         |
+| ------------- | -------------- |
+| +    | expand the visual selection |
+| -    | shrink the visual selection |
+
 ## EasyMotion
 
 | Shortcut Keys | Action         |

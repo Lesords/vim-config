@@ -64,3 +64,6 @@
 [submodule "vim-tmux-navigator"]
 	path = plugged/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "vim-expand-region"]
+	path = plugged/vim-expand-region
+	url = https://github.com/terryma/vim-expand-region.git
