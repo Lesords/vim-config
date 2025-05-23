@@ -18,6 +18,8 @@ set hlsearch        " 高亮匹配结果
 set cursorline      " 突出显示当前行
 set confirm         " 在处理 未保存 和 只读文件 的时候，弹出确认
 set noerrorbells    " 关闭错误提示音
+set nobackup        " 取消备份文件
+set noundofile      " 取消 undo 文件
 
 syntax enable       " 设置语法高亮度
 syntax on
