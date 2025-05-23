@@ -25,6 +25,10 @@ filetype on         " 开始文件类型侦测
 filetype plugin on  " 加载对应文件类型插件
 filetype indent on  " 自适应不同语言的智能缩进
 
+if has('gui_running')
+    set guifont=Consolas:h12
+endif
+
 if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
     if exists('$PC') && $PC == 'PC'
         let &pythonthreedll=$HOME.'/AppData/Local/Programs/Python/Python38/python38.dll'
