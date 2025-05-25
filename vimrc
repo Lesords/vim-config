@@ -20,16 +20,14 @@ set confirm         " 在处理 未保存 和 只读文件 的时候，弹出确
 set noerrorbells    " 关闭错误提示音
 set nobackup        " 取消备份文件
 set noundofile      " 取消 undo 文件
+set t_Co=256
+set t_kD=[3~
 
 syntax enable       " 设置语法高亮度
 syntax on
 filetype on         " 开始文件类型侦测
 filetype plugin on  " 加载对应文件类型插件
 filetype indent on  " 自适应不同语言的智能缩进
-
-if has('gui_running')
-    set guifont=Consolas:h12
-endif
 
 if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
     if exists('$PC') && $PC == 'PC'
@@ -45,7 +43,7 @@ endif
 if v:version < 802
     set fillchars=vert:\⎜,fold:-
 else
-    set fillchars=eob:\ ,vert:\⎜,fold:-
+    set fillchars=eob:\ ,vert:\┃,fold:-
 endif
 
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936    " 自动识别编码格式, 逗号分割不加空格
@@ -229,9 +227,6 @@ call plug#end()
 " lightline
 set laststatus=2
 set showtabline=2
-if !has('gui_running')
-    set t_Co=256
-endif
 
 let g:filenameAndMethod = '%{LightlineFilename()}'.
             \ '%#LightlineLeft_active_0_1#%{NearestMethodOrFunction()}'.
@@ -305,7 +300,11 @@ else
     let floaterm_wintype = 'split'
     let floaterm_height = 0.36
 endif
-let g:floaterm_shell = 'bash --login'
+if v:progpath =~? 'exe'
+    let g:floaterm_shell = &shell
+else
+    let g:floaterm_shell = 'bash.exe --login'
+endif
 
 nnoremap   <silent>   <F7>    :FloatermNew<CR>
 tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>

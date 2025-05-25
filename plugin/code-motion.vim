@@ -73,6 +73,15 @@ endfunction
 
 
 
+if has('gui_running')
+    noremap <silent> <A-K> :call <SID>moveup_line()<CR>
+    noremap <silent> <A-J> :call <SID>movedown_line()<CR>
+    inoremap <silent> <A-K> <ESC>:call <SID>moveup_line()<CR>a
+    inoremap <silent> <A-J> <ESC>:call <SID>movedown_line()<CR>a
+    vnoremap <silent> <A-K> :call <SID>moveup_multlines()<CR>gv "后面必须添加‘gv’才可重新进入可视模式
+    vnoremap <silent> <A-J> :call <SID>movedown_multlines()<CR>gv
+endif
+
 noremap <silent> K :call <SID>moveup_line()<CR>
 noremap <silent> J :call <SID>movedown_line()<CR>
 inoremap <silent> K <ESC>:call <SID>moveup_line()<CR>a
