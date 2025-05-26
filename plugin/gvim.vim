@@ -2,7 +2,9 @@ if has('gui_running')
     set guifont=Consolas:h12
     set guioptions=eg
     set linespace=0
+endif
 
+if v:progpath =~? 'exe'
     noremap <A-h> <C-w>h
     noremap <A-j> <C-w>j
     noremap <A-k> <C-w>k
