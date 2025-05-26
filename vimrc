@@ -30,11 +30,8 @@ filetype plugin on  " 加载对应文件类型插件
 filetype indent on  " 自适应不同语言的智能缩进
 
 if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
-    if exists('$PC') && $PC == 'PC'
-        let &pythonthreedll=$HOME.'/AppData/Local/Programs/Python/Python38/python38.dll'
-    elseif exists('$PC') && $PC == 'WORK'
-        let &pythonthreedll='/c/Python312/python312.dll' " PE32+ executable (DLL) (GUI) x86-64, for MS Windows, 7 sections
-    endif
+    let &pythonthreedll=$HOME.'/AppData/Local/Programs/Python/Python38/python38.dll'
+    " let &pythonthreedll='/c/Python312/python3.dll' " PE32+ executable (DLL) (GUI) x86-64, for MS Windows, 7 sections, not work for leaderf of gVim
 
     nnoremap <silent> ,o :exec 'call system("start \"\" \"" . expand("%") . "\"")' <bar> echo 'Opening current file...' <CR>
     nnoremap <silent> ,e :exec 'call system("start .")' <bar> echo 'Opening current path...' <CR>
