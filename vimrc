@@ -33,7 +33,11 @@ if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
     let &pythonthreedll=$HOME.'/AppData/Local/Programs/Python/Python38/python38.dll'
     " let &pythonthreedll='/c/Python312/python3.dll' " PE32+ executable (DLL) (GUI) x86-64, for MS Windows, 7 sections, not work for leaderf of gVim
 
-    nnoremap <silent> ,o :exec 'call system("start \"\" \"" . expand("%") . "\"")' <bar> echo 'Opening current file...' <CR>
+    if v:progpath !~? 'exe'
+        nnoremap <silent> ,o :exec 'call system("start \"" . expand("%") . "\"")' <bar> echo 'Opening current file...' <CR>
+    else
+        nnoremap <silent> ,o :exec 'call system("bash start \"" . substitute(expand("%:p"), "\\", "/", "g") . "\"")' <bar> echo 'Opening current file...' <CR>
+    endif
     nnoremap <silent> ,e :exec 'call system("explorer .")' <bar> echo 'Opening current path...' <CR>
 endif
 
