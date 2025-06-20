@@ -5,6 +5,9 @@ if has('gui_running')
 endif
 
 if v:progpath =~? 'exe'
+    map ,p "+p<CR>
+    vnoremap ,y "+y<CR>
+
     noremap <A-h> <C-w>h
     noremap <A-j> <C-w>j
     noremap <A-k> <C-w>k

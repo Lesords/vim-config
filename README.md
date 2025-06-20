@@ -64,6 +64,13 @@ git submodule update --init --recursive --depth 1
 | Normal | ,o            | Open the current file with the system default tool |
 | Normal | ,e            | Open the current path with a file manager |
 
+**GVim only**
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Visual | ,y            | Copy content to the system clipboard    |
+| Normal | ,p            | Paste content from the system clipboard |
+
 ## Fern
 
 | Shortcut Keys | Action         |
