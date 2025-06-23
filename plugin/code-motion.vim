@@ -73,7 +73,7 @@ endfunction
 
 
 
-if has('gui_running')
+if v:progpath =~? 'exe'
     noremap <silent> <A-K> :call <SID>moveup_line()<CR>
     noremap <silent> <A-J> :call <SID>movedown_line()<CR>
     inoremap <silent> <A-K> <ESC>:call <SID>moveup_line()<CR>a
