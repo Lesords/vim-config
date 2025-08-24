@@ -28,6 +28,13 @@ git clone https://github.com/Lesords/vim-config.git ~/.vim --depth=1
 git submodule update --init --recursive --depth 1
 ```
 
+Note: To use these configuration files in GVim, you need to add the following to the `_vimrc` file
+
+```bash
+set runtimepath+=$HOME/.vim
+source $HOME/.vim/vimrc
+```
+
 # Keymaps
 
 ## General
