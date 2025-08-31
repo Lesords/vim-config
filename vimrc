@@ -216,13 +216,22 @@ Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 
 Plug 'mbbill/undotree'
+Plug 'voldikss/vim-floaterm'
+Plug 'christoomey/vim-tmux-navigator'
+
 if !exists('$MSYSTEM')
     Plug 'mhinz/vim-startify'
     Plug 'liuchengxu/vista.vim'
 endif
 
-Plug 'voldikss/vim-floaterm'
-Plug 'christoomey/vim-tmux-navigator'
+if has('nvim-0.8') || v:version > 900
+    Plug 'github/copilot.vim'
+endif
+
+if has('vim9script') && v:version >= 901
+    Plug 'girishji/scope.vim'
+    Plug 'vim-fuzzbox/fuzzbox.vim'
+endif
 call plug#end()
 
 " lightline
