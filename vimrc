@@ -313,7 +313,7 @@ endif
 if v:progpath =~? 'exe'
     let g:floaterm_shell = &shell
 else
-    let g:floaterm_shell = 'bash.exe --login'
+    let g:floaterm_shell = 'bash --login'
 endif
 
 nnoremap   <silent>   <F7>    :FloatermNew<CR>
