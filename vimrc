@@ -6,6 +6,7 @@ set tabstop=4       " 设置 Tab 键宽度为 4 个空格
 set expandtab       " 将 tab 转换为空格
 set smartindent     " 智能选择对齐方式
 set cindent         " 设置使用 C/C++ 语言的自动缩进方式
+set cinoptions=g0,N-s,(0
 set autoindent      " 设置自动缩进
 set autoread        " 文件变化时自动重读
 set number          " 显示行号
@@ -22,9 +23,18 @@ set nobackup        " 取消备份文件
 set noundofile      " 取消 undo 文件
 set t_Co=256
 set t_kD=[3~
+set tags=./tags;,./TAGS,tags,TAGS
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936    " 自动识别编码格式, 逗号分割不加空格
 
-syntax enable       " 设置语法高亮度
-syntax on
+if v:version < 802
+    set fillchars=vert:\⎜,fold:-
+else
+    set fillchars=eob:\ ,vert:\┃,fold:-
+endif
+
+syntax   on
+syntax   enable     " 设置语法高亮度
 filetype on         " 开始文件类型侦测
 filetype plugin on  " 加载对应文件类型插件
 filetype indent on  " 自适应不同语言的智能缩进
@@ -41,44 +51,39 @@ if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
     nnoremap <silent> ,e :exec 'call system("explorer .")' <bar> echo 'Opening current path...' <CR>
 endif
 
-if v:version < 802
-    set fillchars=vert:\⎜,fold:-
-else
-    set fillchars=eob:\ ,vert:\┃,fold:-
+
+
+let mapleader    =","
+let g:cocEnabled = 'no'
+if ( system('which clangd') != "" && system('which node') != "" )
+    let g:cocEnabled = 'yes'
 endif
 
-set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936    " 自动识别编码格式, 逗号分割不加空格
-set tags=./tags;,./TAGS,tags,TAGS
+noremap  <silent> h      <C-w>h
+noremap  <silent> j      <C-w>j
+noremap  <silent> k      <C-w>k
+noremap  <silent> l      <C-w>l
+tnoremap <silent> h      <C-w>h
+tnoremap <silent> j      <C-w>j
+tnoremap <silent> k      <C-w>k
+tnoremap <silent> l      <C-w>l
+tnoremap <silent> n      <C-w>N
 
+noremap  <silent> gp       <C-^>
+noremap  <silent> <C-q>    :q<CR>
+noremap  <silent> q      :q<CR>
+noremap  <silent> <C-s>    :w<CR>
+noremap  <silent> s      :w<CR>
+inoremap <silent> <C-s>    <esc>:w<CR>
+inoremap <silent> s      <esc>:w<CR>
+inoremap <silent> <C-j>    <esc>
+vnoremap <silent> <C-j>    <esc>
 
-
-let mapleader=","
-
-noremap h <C-w>h
-noremap j <C-w>j
-noremap k <C-w>k
-noremap l <C-w>l
-tnoremap h <C-w>h
-tnoremap j <C-w>j
-tnoremap k <C-w>k
-tnoremap l <C-w>l
-tnoremap n <C-w>N
-
-noremap gp  <C-^>
-noremap <C-q> :q<CR>
-noremap <C-s> :w<CR>
-inoremap <C-s> <esc>:w<CR>
-noremap q :q<CR>
-noremap s :w<CR>
-inoremap s <esc>:w<CR>
-inoremap <C-j> <esc>
-vnoremap <C-j> <esc>
-
-nnoremap <BS> gT
-nnoremap <silent> T :tabnew<CR>
+nnoremap <silent> <BS>     gT
+nnoremap <silent> T        :tabnew<CR>
 
 " count number of matches of a pattern
-map ,* *<C-O>:%s///gn<CR>
+nnoremap ,*     *<C-O>:%s///gn<CR>
 command -nargs=1 Count :%s/<args>//gn
 
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
@@ -176,16 +181,10 @@ function! WindowToggle()
     endif
 endfunction
 
-let g:cocEnabled = 'no'
-if ( system('which clangd') != "" && system('which node') != "" )
-    let g:cocEnabled = 'yes'
-endif
-
-
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'itchyny/lightline.vim'
 Plug 'frazrepo/vim-rainbow' " so slow
 
 " Plug 'dense-analysis/ale' " slow bug
@@ -217,11 +216,11 @@ Plug 'lambdalisue/glyph-palette.vim'
 
 Plug 'mbbill/undotree'
 Plug 'voldikss/vim-floaterm'
-Plug 'christoomey/vim-tmux-navigator'
 
 if !exists('$MSYSTEM')
     Plug 'mhinz/vim-startify'
     Plug 'liuchengxu/vista.vim'
+    Plug 'christoomey/vim-tmux-navigator'
 endif
 
 if has('nvim-0.8') || v:version > 900
@@ -233,6 +232,30 @@ if has('vim9script') && v:version >= 901
     Plug 'vim-fuzzbox/fuzzbox.vim'
 endif
 call plug#end()
+
+" gruvbox
+set background=dark
+set signcolumn=yes
+let g:gruvbox_contrast_dark    = 'medium'
+let g:gruvbox_sign_column      = 'bg0'
+let g:gruvbox_invert_selection = 0
+colorscheme gruvbox
+
+" indentLine
+let g:indentLine_color_term   = 239
+let g:indentLine_char_list    = ['|', '¦', '┆', '┊']
+let g:vim_json_conceal        = 0
+let g:markdown_syntax_conceal = 0
+
+" vim-cpp-modern
+" Disable function highlighting
+let g:cpp_function_highlight   = 1
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
+" Highlight struct/class member variables
+let g:cpp_member_highlight     = 1
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+let g:cpp_simple_highlight     = 1
 
 " lightline
 set laststatus=2
@@ -271,16 +294,10 @@ function! NearestMethodOrFunction() abort
     return method != '' ? '   '.method : method
 endfunction
 
-" gruvbox
-set background=dark
-set signcolumn=yes
-let g:gruvbox_contrast_dark    = 'medium'
-let g:gruvbox_sign_column      = 'bg0'
-let g:gruvbox_invert_selection = 0
-colorscheme gruvbox
-
 " rainbow
 let g:rainbow_active          = 1
+let g:rainbow_guifgs          = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_ctermfgs        = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 let g:rainbow_load_separately = [
     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
     \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
@@ -288,27 +305,21 @@ let g:rainbow_load_separately = [
     \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
     \ ]
 
-let g:rainbow_guifgs   = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-
-" indentLine
-let g:indentLine_color_term   = 239
-let g:indentLine_char_list    = ['|', '¦', '┆', '┊']
-let g:vim_json_conceal        = 0
-let g:markdown_syntax_conceal = 0
+" vim-tmux-navigator
+let g:tmux_navigator_no_wrap = 1
 
 " vim-commentary
-autocmd FileType apache setlocal commentstring=#\ %s
-autocmd FileType python,shell,coffee set commentstring=#\ %s
-autocmd FileType java,c,cpp set commentstring=//\ %s
+autocmd FileType apache              setlocal commentstring=#\ %s
+autocmd FileType python,shell,coffee setlocal commentstring=#\ %s
+autocmd FileType java,c,cpp          setlocal commentstring=//\ %s
 
 " vim-floaterm
 if v:version >= 802
     let floaterm_wintype = 'popup'
-    let floaterm_height = 0.8
+    let floaterm_height  = 0.8
 else
     let floaterm_wintype = 'split'
-    let floaterm_height = 0.36
+    let floaterm_height  = 0.36
 endif
 if v:progpath =~? 'exe'
     let g:floaterm_shell = &shell
@@ -341,33 +352,23 @@ xmap ic <plug>(signify-motion-inner-visual)
 omap ac <plug>(signify-motion-outer-pending)
 xmap ac <plug>(signify-motion-outer-visual)
 
-" vim-cpp-modern
-" Disable function highlighting
-let g:cpp_function_highlight   = 1
-" Enable highlighting of C++11 attributes
-let g:cpp_attributes_highlight = 1
-" Highlight struct/class member variables
-let g:cpp_member_highlight     = 1
-" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
-let g:cpp_simple_highlight     = 1
-
 " LeaderF
 if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
     let g:Lf_CacheDirectory = $APPDATA
 endif
-let g:Lf_ShortcutF = "<leader>ff"
+let g:Lf_ShortcutF      = "<leader>ff"
+let g:Lf_PopupWidth     = 0.45
 let g:Lf_WindowPosition = 'popup'
-let g:Lf_PopupWidth = 0.45
-noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-noremap <leader>fl :<C-U><C-R>=printf("Leaderf line --no-auto-preview %s", "")<CR><CR>
+noremap <leader>fb  :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm  :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>fl  :<C-U><C-R>=printf("Leaderf line --no-auto-preview %s", "")<CR><CR>
 
-noremap <leader>fa :<C-U><C-R>=printf("Leaderf! rg --all-buffers -F -e %s ", expand("<cword>"))<CR>
-noremap <leader>fc :<C-U><C-R>=printf("Leaderf! rg -F -e %s -g *.{h,c,cpp}", expand("<cword>"))<CR>
-noremap <leader>fs :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -F -e \"%s\"", input("Please enter: "))<CR>
-noremap f :<C-U><C-R>=printf("Leaderf! rg --no-auto-preview -F -e %s ", expand("<cword>"))<CR>
-xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
-noremap go :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>fa  :<C-U><C-R>=printf("Leaderf! rg --all-buffers -F -e %s ", expand("<cword>"))<CR>
+noremap <leader>fc  :<C-U><C-R>=printf("Leaderf! rg -F -e %s -g *.{h,c,cpp}", expand("<cword>"))<CR>
+noremap <leader>fs  :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -F -e \"%s\"", input("Please enter: "))<CR>
+noremap f         :<C-U><C-R>=printf("Leaderf! rg --no-auto-preview -F -e %s ", expand("<cword>"))<CR>
+xnoremap gf         :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go          :<C-U>Leaderf! rg --recall<CR>
 
 noremap <silent> <leader>fg :Leaderf gtags --update<CR>
 noremap <silent> <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
@@ -437,6 +438,10 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
+" vim-clang-format
+autocmd FileType c,cpp,objc noremap <silent> <C-m>  :ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
+
 " vim-multiple-cursors
 let g:multi_cursor_next_key = '<C-n>'
 let g:multi_cursor_prev_key = '<C-p>'
@@ -445,40 +450,30 @@ let g:multi_cursor_quit_key = '<C-j>'
 
 " vim-easymotion
 let g:EasyMotion_do_mapping = 0
-nmap s <Plug>(easymotion-overwin-f2)
+nmap s          <Plug>(easymotion-overwin-f2)
 
-map  <leader>/ <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+map  <leader>/  <Plug>(easymotion-sn)
+omap /          <Plug>(easymotion-tn)
 
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+map <Leader>j   <Plug>(easymotion-j)
+map <Leader>k   <Plug>(easymotion-k)
 
 " ale
-let b:ale_linters = {'c': ['gcc', 'cppcheck'], 'cpp': ['gcc', 'cppcheck'] }
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let b:ale_linters           = {'c': ['gcc', 'cppcheck'], 'cpp': ['gcc', 'cppcheck'] }
+let g:ale_echo_msg_format   = '[%linter%] %s [%severity%]'
 
 " YouCompleteMe
+set completeopt=menu,menuone
 let g:ycm_use_clangd                                    = 0
 " let g:ycm_show_diagnostics_ui                           = 0
 let g:ycm_min_num_identifier_candidate_chars            = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings                           = 1
-let g:ycm_semantic_triggers =  {
+let g:ycm_semantic_triggers                             =  {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
             \ 'cs,lua,javascript': ['re!\w{2}'],
             \ }
-let g:ycm_key_invoke_completion = '<C-h>'
-set completeopt=menu,menuone
-
-" shortcuts
-nnoremap <leader>lg :FloatermNew --width=0.8 lazygit<cr>
-
-noremap  <silent> m :Fern . -drawer -toggle -reveal=%<cr>
-inoremap <silent> m <C-o>:Fern . -drawer -toggle -reveal=% -stay<cr>
-noremap  <silent> p :UndotreeToggle<cr>
-noremap  <silent> n :Vista!!<cr>
-nnoremap <silent> o  :FloatermToggle<CR>
-tnoremap <silent> o   <C-\><C-n>:FloatermToggle<CR>
+let g:ycm_key_invoke_completion                         = '<C-h>'
 
 " coc.nvim
 if ( g:cocEnabled == "yes" )
@@ -533,9 +528,12 @@ if ( g:cocEnabled == "yes" )
     endfunction
 endif
 
-" vim-clang-format
-autocmd FileType c,cpp,objc noremap <silent> <C-m> :ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
+" shortcuts
+nnoremap <silent> <leader>lg    :FloatermNew --width=0.8 lazygit<cr>
 
-" vim-tmux-navigator
-let g:tmux_navigator_no_wrap = 1
+noremap  <silent> m           :Fern . -drawer -toggle -reveal=%<cr>
+inoremap <silent> m           <C-o>:Fern . -drawer -toggle -reveal=% -stay<cr>
+noremap  <silent> p           :UndotreeToggle<cr>
+noremap  <silent> n           :Vista!!<cr>
+nnoremap <silent> o           :FloatermToggle<CR>
+tnoremap <silent> o           <C-\><C-n>:FloatermToggle<CR>
