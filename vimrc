@@ -185,7 +185,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
-Plug 'frazrepo/vim-rainbow' " so slow
+Plug 'luochen1990/rainbow'
 
 " Plug 'dense-analysis/ale' " slow bug
 
@@ -295,15 +295,7 @@ function! NearestMethodOrFunction() abort
 endfunction
 
 " rainbow
-let g:rainbow_active          = 1
-let g:rainbow_guifgs          = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-let g:rainbow_ctermfgs        = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
+let g:rainbow_active = 1
 
 " vim-tmux-navigator
 let g:tmux_navigator_no_wrap = 1
@@ -537,3 +529,4 @@ noremap  <silent> p           :UndotreeToggle<cr>
 noremap  <silent> n           :Vista!!<cr>
 nnoremap <silent> o           :FloatermToggle<CR>
 tnoremap <silent> o           <C-\><C-n>:FloatermToggle<CR>
+

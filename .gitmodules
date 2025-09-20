@@ -4,9 +4,6 @@
 [submodule "indentLine"]
 	path = plugged/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
-[submodule "vim-rainbow"]
-	path = plugged/vim-rainbow
-	url = https://github.com/frazrepo/vim-rainbow.git
 [submodule "vim-startify"]
 	path = plugged/vim-startify
 	url = https://github.com/mhinz/vim-startify.git
@@ -67,3 +64,6 @@
 [submodule "vim-expand-region"]
 	path = plugged/vim-expand-region
 	url = https://github.com/terryma/vim-expand-region.git
+[submodule "rainbow"]
+	path = plugged/rainbow
+	url = https://github.com/luochen1990/rainbow.git
