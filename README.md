@@ -121,14 +121,21 @@ source $HOME/.vim/vimrc
 | ,j    | Jump up |
 | ,k    | Jump down |
 
-## Multiple Cursors
+## Visual Multi
 
-| Shortcut Keys | Action         |
-| ------------- | -------------- |
-| Ctrl + n    | Start selecting the (next) text |
-| Ctrl + p    | Return to previous text |
-| Ctrl + x    | Skip current text |
-| Ctrl + j    | Exit MultiCursor Mode |
+| Mode          | Shortcut Keys | Action         |
+| ------------- | ------------- | -------------- |
+| Normal        | Ctrl + n      | Start selecting the (next) text |
+| Normal        | i, a, I, A    | Start insert mode               |
+| Visual-Multi  | Esc	        | Exit Visual Multi Mode          |
+| Visual-Multi  | n	            | find next (same as C-n)         |
+| Visual-Multi  | N	            | find previous                   |
+| Visual-Multi  | ]	            | goto next                       |
+| Visual-Multi  | [	            | goto previous                   |
+| Visual-Multi  | q	            | skip and go to next             |
+| Visual-Multi  | Q	            | remove region                   |
+| Visual-Multi  | C-f	        | fast forward (go to first region in next page)      |
+| Visual-Multi  | C-b	        | fast backward (go to first region in previous page) |
 
 ## Signify
 

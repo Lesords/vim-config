@@ -46,9 +46,6 @@
 [submodule "vim-easymotion"]
 	path = plugged/vim-easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
-[submodule "vim-multiple-cursors"]
-	path = plugged/vim-multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors.git
 [submodule "tabular"]
 	path = plugged/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -67,3 +64,6 @@
 [submodule "rainbow"]
 	path = plugged/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule "vim-visual-multi"]
+	path = plugged/vim-visual-multi
+	url = https://github.com/mg979/vim-visual-multi.git

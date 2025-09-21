@@ -203,7 +203,7 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'rhysd/vim-clang-format'
@@ -434,12 +434,6 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 autocmd FileType c,cpp,objc noremap <silent> <C-m>  :ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
 
-" vim-multiple-cursors
-let g:multi_cursor_next_key = '<C-n>'
-let g:multi_cursor_prev_key = '<C-p>'
-let g:multi_cursor_skip_key = '<C-x>'
-let g:multi_cursor_quit_key = '<C-j>'
-
 " vim-easymotion
 let g:EasyMotion_do_mapping = 0
 nmap s          <Plug>(easymotion-overwin-f2)
@@ -529,4 +523,3 @@ noremap  <silent> p           :UndotreeToggle<cr>
 noremap  <silent> n           :Vista!!<cr>
 nnoremap <silent> o           :FloatermToggle<CR>
 tnoremap <silent> o           <C-\><C-n>:FloatermToggle<CR>
-
