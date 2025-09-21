@@ -67,3 +67,6 @@
 [submodule "vim-visual-multi"]
 	path = plugged/vim-visual-multi
 	url = https://github.com/mg979/vim-visual-multi.git
+[submodule "auto-pairs"]
+	path = plugged/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
