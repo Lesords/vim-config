@@ -226,6 +226,7 @@ endif
 
 if has('nvim-0.8') || v:version > 900
     Plug 'github/copilot.vim'
+    Plug 'DanBradbury/copilot-chat.vim'
 endif
 
 if has('vim9script') && v:version >= 901
