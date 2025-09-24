@@ -208,7 +208,6 @@ Plug 'mg979/vim-visual-multi'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'rhysd/vim-clang-format'
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
@@ -222,6 +221,10 @@ if !exists('$MSYSTEM')
     Plug 'mhinz/vim-startify'
     Plug 'liuchengxu/vista.vim'
     Plug 'christoomey/vim-tmux-navigator'
+endif
+
+if has('python') || has('python3')
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 endif
 
 if has('nvim-0.8') || v:version > 900
@@ -347,30 +350,32 @@ omap ac <plug>(signify-motion-outer-pending)
 xmap ac <plug>(signify-motion-outer-visual)
 
 " LeaderF
-if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
-    let g:Lf_CacheDirectory = $APPDATA
+if has('python') || has('python3')
+    if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
+        let g:Lf_CacheDirectory = $APPDATA
+    endif
+    let g:Lf_ShortcutF      = "<leader>ff"
+    let g:Lf_PopupWidth     = 0.45
+    let g:Lf_WindowPosition = 'popup'
+    noremap <leader>fb  :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+    noremap <leader>fm  :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+    noremap <leader>fl  :<C-U><C-R>=printf("Leaderf line --no-auto-preview %s", "")<CR><CR>
+
+    noremap <leader>fa  :<C-U><C-R>=printf("Leaderf! rg --all-buffers -F -e %s ", expand("<cword>"))<CR>
+    noremap <leader>fc  :<C-U><C-R>=printf("Leaderf! rg -F -e %s -g *.{h,c,cpp}", expand("<cword>"))<CR>
+    noremap <leader>fs  :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -F -e \"%s\"", input("Please enter: "))<CR>
+    noremap f         :<C-U><C-R>=printf("Leaderf! rg --no-auto-preview -F -e %s ", expand("<cword>"))<CR>
+    xnoremap gf         :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+    noremap go          :<C-U>Leaderf! rg --recall<CR>
+
+    noremap <silent> <leader>fg :Leaderf gtags --update<CR>
+    noremap <silent> <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+    noremap <silent> <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+    noremap <silent> <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+    noremap <silent> <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+    noremap <silent> <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+    " let g:Lf_Gtagsconf="$HOME/.local/share/gtags/gtags.conf"
 endif
-let g:Lf_ShortcutF      = "<leader>ff"
-let g:Lf_PopupWidth     = 0.45
-let g:Lf_WindowPosition = 'popup'
-noremap <leader>fb  :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-noremap <leader>fm  :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-noremap <leader>fl  :<C-U><C-R>=printf("Leaderf line --no-auto-preview %s", "")<CR><CR>
-
-noremap <leader>fa  :<C-U><C-R>=printf("Leaderf! rg --all-buffers -F -e %s ", expand("<cword>"))<CR>
-noremap <leader>fc  :<C-U><C-R>=printf("Leaderf! rg -F -e %s -g *.{h,c,cpp}", expand("<cword>"))<CR>
-noremap <leader>fs  :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -F -e \"%s\"", input("Please enter: "))<CR>
-noremap f         :<C-U><C-R>=printf("Leaderf! rg --no-auto-preview -F -e %s ", expand("<cword>"))<CR>
-xnoremap gf         :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
-noremap go          :<C-U>Leaderf! rg --recall<CR>
-
-noremap <silent> <leader>fg :Leaderf gtags --update<CR>
-noremap <silent> <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap <silent> <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap <silent> <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-noremap <silent> <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-noremap <silent> <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
-" let g:Lf_Gtagsconf="$HOME/.local/share/gtags/gtags.conf"
 
 " fern
 if !has('nvim') && !has('patch-8.2.5136')
