@@ -443,6 +443,12 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 autocmd FileType c,cpp,objc noremap <silent> <C-m>  :ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
 
+" auto pairs
+let g:AutoPairsShortcutToggle     = ',ap'
+let g:AutoPairsShortcutFastWrap   = ',ae'
+let g:AutoPairsShortcutJump       = ',an'
+let g:AutoPairsShortcutBackInsert = ',ab'
+
 " vim-easymotion
 let g:EasyMotion_do_mapping = 0
 nmap s          <Plug>(easymotion-overwin-f2)
