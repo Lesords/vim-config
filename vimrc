@@ -1,6 +1,5 @@
 set nocompatible    " 关闭 vi 兼容模式
 set mouse=a         " 启动鼠标模式
-set ttymouse=sgr
 set shiftwidth=4    " 设置缩进的空格数位4
 set tabstop=4       " 设置 Tab 键宽度为 4 个空格
 set expandtab       " 将 tab 转换为空格
@@ -26,6 +25,9 @@ set t_kD=[3~
 set tags=./tags;,./TAGS,tags,TAGS
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936    " 自动识别编码格式, 逗号分割不加空格
+if !has('nvim')
+    set ttymouse=sgr
+endif
 
 if v:version < 802
     set fillchars=vert:\⎜,fold:-
