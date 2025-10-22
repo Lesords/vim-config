@@ -61,6 +61,16 @@ if ( system('which clangd') != "" && system('which node') != "" )
     let g:cocEnabled = 'yes'
 endif
 
+" vim-cpp-modern
+" Disable function highlighting
+let g:cpp_function_highlight   = 1
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
+" Highlight struct/class member variables
+let g:cpp_member_highlight     = 1
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+let g:cpp_simple_highlight     = 1
+
 noremap  <silent> h      <C-w>h
 noremap  <silent> j      <C-w>j
 noremap  <silent> k      <C-w>k
@@ -186,10 +196,37 @@ endfunction
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
-Plug 'itchyny/lightline.vim'
 Plug 'luochen1990/rainbow'
+Plug 'itchyny/lightline.vim'
+
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
+Plug 'mg979/vim-visual-multi'
+Plug 'terryma/vim-expand-region'
+Plug 'easymotion/vim-easymotion'
+Plug 'godlygeek/tabular'
+Plug 'rhysd/vim-clang-format'
+
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
+Plug 'mbbill/undotree'
+Plug 'voldikss/vim-floaterm'
 
 " Plug 'dense-analysis/ale' " slow bug
+
+if !exists('$MSYSTEM')
+    Plug 'mhinz/vim-startify'
+    Plug 'liuchengxu/vista.vim'
+    Plug 'christoomey/vim-tmux-navigator'
+endif
+
+if has('python') || has('python3')
+    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+endif
 
 if ( v:version >= 802 && has( 'patch3995') )
     if ( g:cocEnabled == 'no' )
@@ -199,34 +236,6 @@ endif
 
 if ( g:cocEnabled == 'yes' )
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-endif
-
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'terryma/vim-expand-region'
-Plug 'jiangmiao/auto-pairs'
-Plug 'mg979/vim-visual-multi'
-Plug 'easymotion/vim-easymotion'
-Plug 'godlygeek/tabular'
-Plug 'rhysd/vim-clang-format'
-
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/glyph-palette.vim'
-
-Plug 'mbbill/undotree'
-Plug 'voldikss/vim-floaterm'
-
-if !exists('$MSYSTEM')
-    Plug 'mhinz/vim-startify'
-    Plug 'liuchengxu/vista.vim'
-    Plug 'christoomey/vim-tmux-navigator'
-endif
-
-if has('python') || has('python3')
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 endif
 
 if has('nvim-0.8') || v:version > 900
@@ -254,15 +263,8 @@ let g:indentLine_char_list    = ['|', '¦', '┆', '┊']
 let g:vim_json_conceal        = 0
 let g:markdown_syntax_conceal = 0
 
-" vim-cpp-modern
-" Disable function highlighting
-let g:cpp_function_highlight   = 1
-" Enable highlighting of C++11 attributes
-let g:cpp_attributes_highlight = 1
-" Highlight struct/class member variables
-let g:cpp_member_highlight     = 1
-" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
-let g:cpp_simple_highlight     = 1
+" rainbow
+let g:rainbow_active = 1
 
 " lightline
 set laststatus=2
@@ -301,9 +303,6 @@ function! NearestMethodOrFunction() abort
     return method != '' ? '   '.method : method
 endfunction
 
-" rainbow
-let g:rainbow_active = 1
-
 " vim-tmux-navigator
 let g:tmux_navigator_no_wrap = 1
 
@@ -334,22 +333,6 @@ nnoremap   <silent>   <F9>    :FloatermNext<CR>
 tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-
-" Signify
-set updatetime=1000
-let g:signify_disable_by_default = 1 " for WSL2
-nnoremap <silent> d :SignifyToggle<cr>
-inoremap <silent> d :SignifyToggle<cr>
-nnoremap <silent> <leader>gd :SignifyDiff<cr>
-nnoremap <silent> <leader>gp :SignifyHunkDiff<cr>
-nnoremap <silent> <leader>gu :SignifyHunkUndo<cr>
-nmap     <leader>gj <plug>(signify-next-hunk)
-nmap     <leader>gk <plug>(signify-prev-hunk)
-" hunk text object
-omap ic <plug>(signify-motion-inner-pending)
-xmap ic <plug>(signify-motion-inner-visual)
-omap ac <plug>(signify-motion-outer-pending)
-xmap ac <plug>(signify-motion-outer-visual)
 
 " LeaderF
 if has('python') || has('python3')
@@ -433,15 +416,21 @@ augroup my-glyph-palette
     autocmd FileType nerdtree,startify call glyph_palette#apply()
 augroup END
 
-" Tabularize
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-
-" vim-clang-format
-autocmd FileType c,cpp,objc noremap <silent> <C-m>  :ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
+" Signify
+set updatetime=1000
+let g:signify_disable_by_default = 1 " for WSL2
+nnoremap <silent> d :SignifyToggle<cr>
+inoremap <silent> d :SignifyToggle<cr>
+nnoremap <silent> <leader>gd :SignifyDiff<cr>
+nnoremap <silent> <leader>gp :SignifyHunkDiff<cr>
+nnoremap <silent> <leader>gu :SignifyHunkUndo<cr>
+nmap     <leader>gj <plug>(signify-next-hunk)
+nmap     <leader>gk <plug>(signify-prev-hunk)
+" hunk text object
+omap ic <plug>(signify-motion-inner-pending)
+xmap ic <plug>(signify-motion-inner-visual)
+omap ac <plug>(signify-motion-outer-pending)
+xmap ac <plug>(signify-motion-outer-visual)
 
 " auto pairs
 let g:AutoPairsShortcutToggle     = ',ap'
@@ -458,6 +447,16 @@ omap /          <Plug>(easymotion-tn)
 
 map <Leader>j   <Plug>(easymotion-j)
 map <Leader>k   <Plug>(easymotion-k)
+
+" Tabularize
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
+" vim-clang-format
+autocmd FileType c,cpp,objc noremap <silent> <C-m>  :ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
 
 " ale
 let b:ale_linters           = {'c': ['gcc', 'cppcheck'], 'cpp': ['gcc', 'cppcheck'] }
