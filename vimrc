@@ -1,61 +1,4 @@
-set nocompatible    " 关闭 vi 兼容模式
-set mouse=a         " 启动鼠标模式
-set shiftwidth=4    " 设置缩进的空格数位4
-set tabstop=4       " 设置 Tab 键宽度为 4 个空格
-set expandtab       " 将 tab 转换为空格
-set smartindent     " 智能选择对齐方式
-set cindent         " 设置使用 C/C++ 语言的自动缩进方式
-set cinoptions=g0,N-s,(0
-set autoindent      " 设置自动缩进
-set autoread        " 文件变化时自动重读
-set number          " 显示行号
-set ruler           " 显示光标位置
-set showmatch       " 高亮显示匹配的括号
-set showcmd         " 右下角显示命令
-set smartcase       " 搜索时智能匹配大小写
-set wildmenu        " 使用 Tab 键补全时，在状态栏显示匹配的列表
-set hlsearch        " 高亮匹配结果
-set cursorline      " 突出显示当前行
-set confirm         " 在处理 未保存 和 只读文件 的时候，弹出确认
-set noerrorbells    " 关闭错误提示音
-set nobackup        " 取消备份文件
-set noundofile      " 取消 undo 文件
-set t_Co=256
-set t_kD=[3~
-set tags=./tags;,./TAGS,tags,TAGS
-set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936    " 自动识别编码格式, 逗号分割不加空格
-if !has('nvim')
-    set ttymouse=sgr
-endif
-
-if v:version < 802
-    set fillchars=vert:\⎜,fold:-
-else
-    set fillchars=eob:\ ,vert:\┃,fold:-
-endif
-
-syntax   on
-syntax   enable     " 设置语法高亮度
-filetype on         " 开始文件类型侦测
-filetype plugin on  " 加载对应文件类型插件
-filetype indent on  " 自适应不同语言的智能缩进
-
-if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
-    let &pythonthreedll=$HOME.'/AppData/Local/Programs/Python/Python38/python38.dll'
-    " let &pythonthreedll='/c/Python312/python3.dll' " PE32+ executable (DLL) (GUI) x86-64, for MS Windows, 7 sections, not work for leaderf of gVim
-
-    if v:progpath !~? 'exe'
-        nnoremap <silent> ,o :exec 'call system("start \"" . expand("%") . "\"")' <bar> echo 'Opening current file...' <CR>
-    else
-        nnoremap <silent> ,o :exec 'call system("bash start \"" . substitute(expand("%:p"), "\\", "/", "g") . "\"")' <bar> echo 'Opening current file...' <CR>
-    endif
-    nnoremap <silent> ,e :exec 'call system("explorer .")' <bar> echo 'Opening current path...' <CR>
-endif
-
-
-
-let mapleader    =","
+let mapleader    = ","
 let g:cocEnabled = 'no'
 if ( system('which clangd') != "" && system('which node') != "" )
     let g:cocEnabled = 'yes'
@@ -70,128 +13,6 @@ let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight     = 1
 " Put all standard C and C++ keywords under Vim's highlight group 'Statement'
 let g:cpp_simple_highlight     = 1
-
-noremap  <silent> h      <C-w>h
-noremap  <silent> j      <C-w>j
-noremap  <silent> k      <C-w>k
-noremap  <silent> l      <C-w>l
-tnoremap <silent> h      <C-w>h
-tnoremap <silent> j      <C-w>j
-tnoremap <silent> k      <C-w>k
-tnoremap <silent> l      <C-w>l
-tnoremap <silent> n      <C-w>N
-
-noremap  <silent> gp       <C-^>
-noremap  <silent> <C-q>    :q<CR>
-noremap  <silent> q      :q<CR>
-noremap  <silent> <C-s>    :w<CR>
-noremap  <silent> s      :w<CR>
-inoremap <silent> <C-s>    <esc>:w<CR>
-inoremap <silent> s      <esc>:w<CR>
-inoremap <silent> <C-j>    <esc>
-vnoremap <silent> <C-j>    <esc>
-
-nnoremap <silent> <BS>     gT
-nnoremap <silent> T        :tabnew<CR>
-
-" count number of matches of a pattern
-nnoremap ,*     *<C-O>:%s///gn<CR>
-command -nargs=1 Count :%s/<args>//gn
-
-nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
-
-command! Reload source $MYVIMRC
-
-command! Plain call PlainToggle()
-function! PlainToggle()
-    let &cole=(&cole == 2) ? 0 : 2
-
-    call ChangeLineStyle()
-endfunction
-
-command! Strip call ClearSpaceChar()
-function! ClearSpaceChar()
-    %s/\s\+$//g
-endfunction
-
-command! Hexmode call HexModeToggle()
-let g:hexmode = 0
-function! HexModeToggle()
-    if g:hexmode
-        %!xxd -r
-    else
-        %!xxd
-    endif
-    let g:hexmode = !g:hexmode
-endfunction
-
-let g:cwd = getcwd(-1)
-noremap <silent> t :call ChangeCurrentPath()<CR>
-function! ChangeCurrentPath()
-    execute 'cd' g:cwd
-endfunction
-
-noremap <silent> i :call ChangeLineStyle()<CR>
-let g:linestyle = 'yes'
-function! ChangeLineStyle()
-    if g:linestyle == 'yes'
-        let g:linestyle = 'no'
-        set nonumber
-        set signcolumn=no
-    else
-        let g:linestyle = 'yes'
-        set number
-        set signcolumn=yes
-    endif
-endfunction
-
-noremap <silent> ,i :call ChangeIndentation()<CR>
-function! ChangeIndentation()
-    let shiftwidth_value = &shiftwidth
-
-    if ( shiftwidth_value == 4 )
-        set tabstop=2
-        set shiftwidth=2
-        echo "switch to 2 space mode"
-    else
-        set tabstop=4
-        set shiftwidth=4
-        echo "switch to 4 space mode"
-    endif
-endfunction
-
-noremap <silent> ,t :call ChangeTab()<CR>
-function! ChangeTab()
-    if &expandtab
-        set noet|retab!
-        echo "Change space to tab"
-    else
-        set et|retab
-        echo "Change tab to space"
-    endif
-endfunction
-
-noremap <silent> ,m :call WindowToggle()<CR>
-let g:windowid = ''
-let g:windowtoggle = 'no'
-function! WindowToggle()
-    if ( g:windowid != win_getid() )
-        let g:windowtoggle = 'no'
-    endif
-
-    if ( g:windowtoggle == 'no' )
-        let g:windowid = win_getid()
-        let g:windowtoggle = 'yes'
-        let fullHeight = &lines - 2
-        let fullWidth = &columns
-
-        execute 'resize' fullHeight
-        execute 'vertical resize' fullWidth
-    else
-        let g:windowtoggle = 'no'
-        wincmd =
-    endif
-endfunction
 
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
@@ -319,15 +140,6 @@ else
     let g:floaterm_shell = 'bash --login'
 endif
 
-nnoremap   <silent>   <F7>    :FloatermNew<CR>
-tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
-nnoremap   <silent>   <F8>    :FloatermPrev<CR>
-tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
-nnoremap   <silent>   <F9>    :FloatermNext<CR>
-tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <F12>   :FloatermToggle<CR>
-tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-
 " LeaderF
 if has('python') || has('python3')
     if exists('$MSYSTEM') && $MSYSTEM == 'MINGW64'
@@ -413,18 +225,6 @@ augroup END
 " Signify
 set updatetime=1000
 let g:signify_disable_by_default = 1 " for WSL2
-nnoremap <silent> d :SignifyToggle<cr>
-inoremap <silent> d :SignifyToggle<cr>
-nnoremap <silent> <leader>gd :SignifyDiff<cr>
-nnoremap <silent> <leader>gp :SignifyHunkDiff<cr>
-nnoremap <silent> <leader>gu :SignifyHunkUndo<cr>
-nmap     <leader>gj <plug>(signify-next-hunk)
-nmap     <leader>gk <plug>(signify-prev-hunk)
-" hunk text object
-omap ic <plug>(signify-motion-inner-pending)
-xmap ic <plug>(signify-motion-inner-visual)
-omap ac <plug>(signify-motion-outer-pending)
-xmap ac <plug>(signify-motion-outer-visual)
 
 " auto pairs
 let g:AutoPairsShortcutToggle     = ',ap'
@@ -434,19 +234,6 @@ let g:AutoPairsShortcutBackInsert = ',ab'
 
 " vim-easymotion
 let g:EasyMotion_do_mapping = 0
-nmap s          <Plug>(easymotion-overwin-f2)
-
-map  <leader>/  <Plug>(easymotion-sn)
-omap /          <Plug>(easymotion-tn)
-
-map <Leader>j   <Plug>(easymotion-j)
-map <Leader>k   <Plug>(easymotion-k)
-
-" Tabularize
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
 
 " vim-clang-format
 autocmd FileType c,cpp,objc noremap <silent> <C-m>  :ClangFormat<CR>
@@ -508,13 +295,3 @@ if ( g:cocEnabled == "yes" )
         endif
     endfunction
 endif
-
-" shortcuts
-nnoremap <silent> <leader>lg    :FloatermNew --width=0.8 lazygit<cr>
-
-noremap  <silent> m           :Fern . -drawer -toggle -reveal=%<cr>
-inoremap <silent> m           <C-o>:Fern . -drawer -toggle -reveal=% -stay<cr>
-noremap  <silent> p           :UndotreeToggle<cr>
-noremap  <silent> n           :Vista!!<cr>
-nnoremap <silent> o           :FloatermToggle<CR>
-tnoremap <silent> o           <C-\><C-n>:FloatermToggle<CR>
