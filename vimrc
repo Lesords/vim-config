@@ -228,12 +228,6 @@ if has('python') || has('python3')
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 endif
 
-if ( v:version >= 802 && has( 'patch3995') )
-    if ( g:cocEnabled == 'no' )
-        Plug 'ycm-core/YouCompleteMe'
-    endif
-endif
-
 if ( g:cocEnabled == 'yes' )
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
@@ -461,19 +455,6 @@ autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
 " ale
 let b:ale_linters           = {'c': ['gcc', 'cppcheck'], 'cpp': ['gcc', 'cppcheck'] }
 let g:ale_echo_msg_format   = '[%linter%] %s [%severity%]'
-
-" YouCompleteMe
-set completeopt=menu,menuone
-let g:ycm_use_clangd                                    = 0
-" let g:ycm_show_diagnostics_ui                           = 0
-let g:ycm_min_num_identifier_candidate_chars            = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_strings                           = 1
-let g:ycm_semantic_triggers                             =  {
-            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
-            \ 'cs,lua,javascript': ['re!\w{2}'],
-            \ }
-let g:ycm_key_invoke_completion                         = '<C-h>'
 
 " coc.nvim
 if ( g:cocEnabled == "yes" )
