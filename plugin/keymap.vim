@@ -68,6 +68,31 @@ xnoremap ic                <plug>(signify-motion-inner-visual)
 onoremap ac                <plug>(signify-motion-outer-pending)
 xnoremap ac                <plug>(signify-motion-outer-visual)
 
+" vim-clang-format
+autocmd FileType c,cpp,objc noremap <silent> <C-m>  :ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
+
+" Leaderf
+if has('python') || has('python3')
+    noremap <leader>fb  :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+    noremap <leader>fm  :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+    noremap <leader>fl  :<C-U><C-R>=printf("Leaderf line --no-auto-preview %s", "")<CR><CR>
+
+    noremap <leader>fa  :<C-U><C-R>=printf("Leaderf! rg --all-buffers -F -e %s ", expand("<cword>"))<CR>
+    noremap <leader>fc  :<C-U><C-R>=printf("Leaderf! rg -F -e %s -g *.{h,c,cpp}", expand("<cword>"))<CR>
+    noremap <leader>fs  :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -F -e \"%s\"", input("Please enter: "))<CR>
+    noremap f         :<C-U><C-R>=printf("Leaderf! rg --no-auto-preview -F -e %s ", expand("<cword>"))<CR>
+    xnoremap gf         :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+    noremap go          :<C-U>Leaderf! rg --recall<CR>
+
+    noremap <silent> <leader>fg :Leaderf gtags --update<CR>
+    noremap <silent> <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+    noremap <silent> <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+    noremap <silent> <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+    noremap <silent> <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+    noremap <silent> <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+endif
+
 noremap  <silent> m      :Fern . -drawer -toggle -reveal=%<cr>
 inoremap <silent> m      <C-o>:Fern . -drawer -toggle -reveal=% -stay<cr>
 noremap  <silent> p      :UndotreeToggle<cr>
