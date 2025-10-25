@@ -110,7 +110,7 @@ function! LightlineFilename()
 endfunction
 
 " vista in lightline
-if !exists('$MSYSTEM')
+if exists('g:loaded_vista')
     autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 endif
 function! NearestMethodOrFunction() abort
