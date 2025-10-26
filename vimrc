@@ -53,7 +53,7 @@ if ( g:cocEnabled == 'yes' )
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
 
-if has('nvim-0.8') || v:version > 900
+if has('vim9script') && v:version >= 900
     Plug 'github/copilot.vim'
     Plug 'DanBradbury/copilot-chat.vim'
 endif
@@ -61,6 +61,11 @@ endif
 if has('vim9script') && v:version >= 901
     Plug 'girishji/scope.vim'
     Plug 'vim-fuzzbox/fuzzbox.vim'
+endif
+
+if has('nvim')
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'CopilotC-Nvim/CopilotChat.nvim'
 endif
 call plug#end()
 
