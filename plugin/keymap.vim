@@ -26,6 +26,10 @@ nnoremap <silent> ,*       *<C-O>:%s///gn<CR>
 
 nnoremap ,c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
+if has('clipboard')
+    vnoremap <RightMouse> "+y
+endif
+
 
 
 " vim-floaterm

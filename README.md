@@ -6,6 +6,7 @@ This is my vim configuration
 
 - Vim with `terminal` feature
 - Vim with `python` feature
+- Vim with `clipboard` feature, vim-gtk3 package is required (optional)
 - [Nerd Fonts](https://www.nerdfonts.com/) (for vim icons)
 
 # Installation

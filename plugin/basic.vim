@@ -30,6 +30,10 @@ if !has('nvim')
     set ttymouse=sgr
 endif
 
+if has('clipboard')
+    set clipboard=unnamedplus
+endif
+
 " defaut path: /usr/share/vim/vim80/debian.vim
 set backspace=indent,eol,start
 
