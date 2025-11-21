@@ -102,3 +102,14 @@ noremap  <silent> m      :Fern . -drawer -toggle -reveal=%<cr>
 inoremap <silent> m      <C-o>:Fern . -drawer -toggle -reveal=% -stay<cr>
 noremap  <silent> p      :UndotreeToggle<cr>
 noremap  <silent> n      :Vista!!<cr>
+
+if has('vim9script') && v:version >= 901
+    nnoremap <Space>ff <scriptcmd>vim9cmd scope#fuzzy#File()<cr>
+    nnoremap <Space>fs <scriptcmd>vim9cmd scope#fuzzy#Grep('rg --vimgrep --smart-case')<cr>
+    nnoremap <Space>fz :FuzzyFiles<CR>
+    nnoremap <Space>fl :FuzzyInBuffer<CR>
+endif
+
+if has('vim9script') && v:version >= 900
+  nnoremap <Space>cc :CopilotChatOpen<CR>
+endif

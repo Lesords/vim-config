@@ -211,6 +211,26 @@ source $HOME/.vim/vimrc
 | Visual | Alt + J       | Move code down |
 | Visual | Alt + K       | Move code up   |
 
+## scope
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | <Space> + ff  | Search for files |
+| Normal | <Space> + fs  | Search (rg) |
+
+## fuzzbox
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | <Space> + fz  | Search for files |
+| Normal | <Space> + fl  | Search Line |
+
+## CopilotChat
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | <Space> + cc  | Open Copiloat Chat |
+
 # Screenshots
 
 ![vim](https://raw.githubusercontent.com/Lesords/ImageHost/main/Repository/vim-config/vim.png)
