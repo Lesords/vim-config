@@ -18,7 +18,8 @@ inoremap <silent> s      <esc>:w<CR>
 inoremap <silent> <C-j>    <esc>
 vnoremap <silent> <C-j>    <esc>
 
-nnoremap <silent> <BS>     gT
+nnoremap <silent> <BS>     gt
+nnoremap <silent> <BS>   gT
 nnoremap <silent> T        :tabnew<CR>
 
 " count number of matches of a pattern

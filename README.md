@@ -42,33 +42,34 @@ source $HOME/.vim/vimrc
 
 | Mode   | Shortcut Keys | Action         |
 | ------ | ------------- | -------------- |
-| Normal | Alt + h       | Go to left window |
+| Normal | Alt + h       | Go to left window   |
 | Normal | Alt + j       | Go to downer window |
-| Normal | Alt + k       | Go to upper window |
-| Normal | Alt + l       | Go to right window |
-| Terminal | Alt + h       | Go to left window |
-| Terminal | Alt + j       | Go to downer window |
-| Terminal | Alt + k       | Go to upper window |
-| Terminal | Alt + l       | Go to right window |
+| Normal | Alt + k       | Go to upper window  |
+| Normal | Alt + l       | Go to right window  |
+| Terminal | Alt + h     | Go to left window   |
+| Terminal | Alt + j     | Go to downer window |
+| Terminal | Alt + k     | Go to upper window  |
+| Terminal | Alt + l     | Go to right window  |
 | Normal | gp            | Return to the previous file |
-| Normal | Ctrl + s      | Save file |
-| Normal | Ctrl + q      | Quit     |
-| Normal | Alt + s      | Save file |
-| Normal | Alt + q      | Quit       |
-| Normal | Backspace | Switch to the previous tab |
-| Normal | T | New Tab |
-| Normal | ,m | Toggle full screen |
-| Normal | ,\* | Count the number of occurrences of the current field |
-| Normal | ,c | Toggle conceal level |
-| Normal | Alt + t | Return to the original path |
-| Normal | Alt + i | Switch line style |
-| Normal | ,i | Switch indent size |
-| Normal | ,t | Switch between tab and space |
-| Normal | ,lg    | Open lazygit |
-| Normal | Alt + m    | Open Fern |
-| Normal | Alt + p   | Open UndoTree |
-| Normal | Alt + n   | Open Vista |
-| Normal | Alt + o   | Open Floaterm |
+| Normal | Ctrl + s      | Save file           |
+| Normal | Ctrl + q      | Quit                |
+| Normal | Alt + s       | Save file           |
+| Normal | Alt + q       | Quit                |
+| Normal | Backspace     | Switch to the next tab |
+| Normal | Alt + BS      | Switch to the previous tab |
+| Normal | T             | New Tab             |
+| Normal | ,m            | Toggle full screen  |
+| Normal | ,\*           | Count the number of occurrences of the current field |
+| Normal | ,c            | Toggle conceal level |
+| Normal | Alt + t       | Return to the original path |
+| Normal | Alt + i       | Switch line style   |
+| Normal | ,i            | Switch indent size  |
+| Normal | ,t            | Switch between tab and space |
+| Normal | ,lg           | Open lazygit        |
+| Normal | Alt + m       | Open Fern           |
+| Normal | Alt + p       | Open UndoTree       |
+| Normal | Alt + n       | Open Vista          |
+| Normal | Alt + o       | Open Floaterm       |
 
 **Git Bash only**
 
