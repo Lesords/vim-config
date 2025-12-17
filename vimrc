@@ -153,6 +153,7 @@ if has('python') || has('python3')
     let g:Lf_ShortcutF      = "<leader>ff"
     let g:Lf_PopupWidth     = 0.45
     let g:Lf_WindowPosition = 'popup'
+    let g:Lf_JumpToExistingWindow = 0
     " let g:Lf_Gtagsconf="$HOME/.local/share/gtags/gtags.conf"
 endif
 
