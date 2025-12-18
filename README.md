@@ -221,21 +221,21 @@ source $HOME/.vim/vimrc
 
 | Mode   | Shortcut Keys | Action         |
 | ------ | ------------- | -------------- |
-| Normal | <Space> + ff  | Search for files |
-| Normal | <Space> + fs  | Search (rg) |
+| Normal | Space + ff    | Search for files |
+| Normal | Space + fs    | Search (rg) |
 
 ## fuzzbox
 
 | Mode   | Shortcut Keys | Action         |
 | ------ | ------------- | -------------- |
-| Normal | <Space> + fz  | Search for files |
-| Normal | <Space> + fl  | Search Line |
+| Normal | Space + fz    | Search for files |
+| Normal | Space + fl    | Search Line |
 
 ## CopilotChat
 
 | Mode   | Shortcut Keys | Action         |
 | ------ | ------------- | -------------- |
-| Normal | <Space> + cc  | Open Copiloat Chat |
+| Normal | Space + cc    | Open Copiloat Chat |
 
 # Screenshots
 
