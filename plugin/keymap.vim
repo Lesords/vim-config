@@ -73,6 +73,9 @@ xnoremap ic                <plug>(signify-motion-inner-visual)
 onoremap ac                <plug>(signify-motion-outer-pending)
 xnoremap ac                <plug>(signify-motion-outer-visual)
 
+" context
+nnoremap <leader>[         :ContextToggleWindow<cr>
+
 " vim-clang-format
 autocmd FileType c,cpp,objc noremap <silent> <C-m>  :ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>

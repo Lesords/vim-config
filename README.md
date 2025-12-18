@@ -154,6 +154,12 @@ source $HOME/.vim/vimrc
 | Visual | ic       | Cover modification range |
 | Visual | ac       | Cover modification range |
 
+## Context
+
+| Mode   | Shortcut Keys | Action                |
+| ------ | ------------- | --------------------- |
+| Normal | ,[            | Toggle Context Window |
+
 ## Tabularize
 
 | Mode   | Shortcut Keys | Action         |

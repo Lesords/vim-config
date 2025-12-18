@@ -22,6 +22,7 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-surround'
+Plug 'wellle/context.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'mg979/vim-visual-multi'
