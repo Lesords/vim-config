@@ -31,6 +31,7 @@ if has('clipboard')
     vnoremap <RightMouse> "+y
 endif
 
+noremap <silent> <C-RightMouse> <C-o>
 
 
 " vim-floaterm
@@ -99,6 +100,8 @@ if has('python') || has('python3')
     noremap <silent> <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
     noremap <silent> <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
     noremap <silent> <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+
+    noremap <silent> <C-LeftMouse> :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 endif
 
 noremap  <silent> m      :Fern . -drawer -toggle -reveal=%<cr>
