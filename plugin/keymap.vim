@@ -92,6 +92,7 @@ if has('python') || has('python3')
     noremap <leader>fs  :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -F -e \"%s\"", input("Please enter: "))<CR>
     noremap f         :<C-U><C-R>=printf("Leaderf! rg --no-auto-preview -F -e %s ", expand("<cword>"))<CR>
     xnoremap gf         :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+    xnoremap gp         :<C-U><C-R>=printf("Leaderf! file --input %s ", leaderf#Rg#visual())<CR><CR>
     noremap go          :<C-U>Leaderf! rg --recall<CR>
 
     noremap <silent> <leader>fg :Leaderf gtags --update<CR>

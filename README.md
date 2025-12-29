@@ -182,6 +182,7 @@ source $HOME/.vim/vimrc
 | Normal | ,fs       | Search (input required) |
 | Normal | Alt + f       | Search the current field |
 | Visual | gf       | Search the current field |
+| Visual | gp       | Search the current file |
 | Normal | go       | Execute the last search operation again |
 | Normal | ,fg       | Generate gtag files |
 | Normal | ,fr       | Jump to reference |
