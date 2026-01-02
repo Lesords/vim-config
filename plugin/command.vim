@@ -92,3 +92,38 @@ function! WindowToggle()
         wincmd =
     endif
 endfunction
+
+function! GetSurroundText() abort
+    let l:line = getline('.')
+    let l:col  = col('.')
+
+    let l:m = matchstrpos(
+                \ l:line,
+                \ '<\([^>]*\)\%'.l:col.'c[^>]*>',
+                \ 0
+                \ )
+    if l:m[1] != -1
+        return l:m[0][1:-2]
+    endif
+
+    let l:m = matchstrpos(
+                \ l:line,
+                \ '"\([^"]*\)\%'.l:col.'c[^"]*"',
+                \ 0
+                \ )
+    if l:m[1] != -1
+        return l:m[0][1:-2]
+    endif
+
+    return ''
+endfunction
+
+noremap <silent> ,gh :call GetCurrentFile()<CR>
+function! GetCurrentFile() abort
+    let l:file = GetSurroundText()
+    if (l:file == "")
+        echo "error: no file need to search"
+        return
+    endif
+    execute printf("Leaderf! file --input %s ", l:file)
+endfunction

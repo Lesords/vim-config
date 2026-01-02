@@ -180,6 +180,7 @@ source $HOME/.vim/vimrc
 | Normal | ,fa       | Search the current field（In all caches） |
 | Normal | ,fc       | Search the current field（c/cpp related files only） |
 | Normal | ,fs       | Search (input required) |
+| Normal | ,fh       | Search the current file |
 | Normal | Alt + f       | Search the current field |
 | Visual | gf       | Search the current field |
 | Visual | gp       | Search the current file |
