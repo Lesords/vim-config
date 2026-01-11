@@ -38,6 +38,8 @@ noremap <silent> <C-RightMouse> <C-o>
 nnoremap <silent> o      :FloatermToggle<CR>
 tnoremap <silent> o      <C-\><C-n>:FloatermToggle<CR>
 nnoremap <silent> ,lg      :FloatermNew --width=0.8 lazygit<cr>
+tnoremap <silent> ,f+      <cmd>FloatermUpdate --height=0.95 --width=0.99<cr>
+tnoremap <silent> ,f-      <cmd>FloatermUpdate --height=g:floaterm_height --width=g:floaterm_width<cr>
 nnoremap <silent> <F7>     :FloatermNew<CR>
 tnoremap <silent> <F7>     <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent> <F8>     :FloatermPrev<CR>

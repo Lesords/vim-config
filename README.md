@@ -69,7 +69,6 @@ source $HOME/.vim/vimrc
 | Normal | Alt + m       | Open Fern           |
 | Normal | Alt + p       | Open UndoTree       |
 | Normal | Alt + n       | Open Vista          |
-| Normal | Alt + o       | Open Floaterm       |
 
 **Git Bash only**
 
@@ -196,10 +195,13 @@ source $HOME/.vim/vimrc
 
 | Mode   | Shortcut Keys | Action         |
 | ------ | ------------- | -------------- |
-| Normal | F7       | Create a new terminal |
-| Normal | F8       | Switch to the previous terminal |
-| Normal | F9       | Switch to the next terminal |
-| Normal | F12       | Toggle Terminal |
+| Normal | Alt + o       | Open Floaterm  |
+| Normal | ,f+           | Maximize window size  |
+| Normal | ,f-           | Restore default window size  |
+| Normal | F7            | Create a new terminal |
+| Normal | F8            | Switch to the previous terminal |
+| Normal | F9            | Switch to the next terminal |
+| Normal | F12           | Toggle Terminal |
 
 ## Clang Format
 
