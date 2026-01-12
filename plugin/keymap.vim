@@ -46,8 +46,8 @@ nnoremap <silent> <F8>     :FloatermPrev<CR>
 tnoremap <silent> <F8>     <C-\><C-n>:FloatermPrev<CR>
 nnoremap <silent> <F9>     :FloatermNext<CR>
 tnoremap <silent> <F9>     <C-\><C-n>:FloatermNext<CR>
-nnoremap <silent> <F12>    :FloatermToggle<CR>
-tnoremap <silent> <F12>    <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent> <F10>    :FloatermNew --height=0.3 --wintype=split<CR>
+tnoremap <silent> <F10>    <C-\><C-n>:FloatermNew --height=0.3 --wintype=split<CR>
 
 " vim-easymotion
 nnoremap s                 <Plug>(easymotion-overwin-f2)

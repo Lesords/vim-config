@@ -194,15 +194,20 @@ source $HOME/.vim/vimrc
 
 ## Floaterm
 
-| Mode   | Shortcut Keys | Action         |
-| ------ | ------------- | -------------- |
-| Normal | Alt + o       | Open Floaterm  |
-| Normal | ,f+           | Maximize window size  |
-| Normal | ,f-           | Restore default window size  |
-| Normal | F7            | Create a new terminal |
-| Normal | F8            | Switch to the previous terminal |
-| Normal | F9            | Switch to the next terminal |
-| Normal | F12           | Toggle Terminal |
+| Mode     | Shortcut Keys | Action         |
+| -------- | ------------- | -------------- |
+| Normal   | Alt + o       | Open Floaterm  |
+| Terminal | Alt + o       | Open Floaterm  |
+| Terminal | ,f+           | Maximize window size  |
+| Terminal | ,f-           | Restore default window size  |
+| Normal   | F7            | Create a new terminal |
+| Terminal | F7            | Create a new terminal |
+| Normal   | F8            | Switch to the previous terminal |
+| Terminal | F8            | Switch to the previous terminal |
+| Normal   | F9            | Switch to the next terminal |
+| Terminal | F9            | Switch to the next terminal |
+| Normal   | F10           | Create a new terminal(split) |
+| Terminal | F10           | Create a new terminal(split) |
 
 ## Clang Format
 
