@@ -175,6 +175,7 @@ source $HOME/.vim/vimrc
 | Normal | ,ff       | Search for files |
 | Normal | ,fb       | Search Cache |
 | Normal | ,fm       | Search History |
+| Normal | ,fw       | Search Window |
 | Normal | ,fl       | Search Line |
 | Normal | ,fa       | Search the current field（In all caches） |
 | Normal | ,fc       | Search the current field（c/cpp related files only） |

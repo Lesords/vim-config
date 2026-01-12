@@ -87,6 +87,7 @@ autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
 if has('python') || has('python3')
     noremap <leader>fb  :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
     noremap <leader>fm  :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+    noremap <leader>fw  :<C-U><C-R>=printf("Leaderf window %s", "")<CR><CR>
     noremap <leader>fl  :<C-U><C-R>=printf("Leaderf line --no-auto-preview %s", "")<CR><CR>
 
     noremap <leader>fa  :<C-U><C-R>=printf("Leaderf! rg --all-buffers -F -e %s ", expand("<cword>"))<CR>
