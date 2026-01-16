@@ -50,6 +50,7 @@ source $HOME/.vim/vimrc
 | Terminal | Alt + j     | Go to downer window |
 | Terminal | Alt + k     | Go to upper window  |
 | Terminal | Alt + l     | Go to right window  |
+| Terminal | Alt + n     | Enter terminal's normal mode|
 | Normal | gp            | Return to the previous file |
 | Normal | Ctrl + s      | Save file           |
 | Normal | Ctrl + q      | Quit                |
