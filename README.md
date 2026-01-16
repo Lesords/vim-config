@@ -70,6 +70,13 @@ source $HOME/.vim/vimrc
 | Normal | Alt + p       | Open UndoTree       |
 | Normal | Alt + n       | Open Vista          |
 
+**Linux with KDE**
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | ,o            | Open the current file with dolphin |
+| Normal | ,e            | Open the current path with dolphin |
+
 **Git Bash only**
 
 | Mode   | Shortcut Keys | Action         |

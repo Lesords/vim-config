@@ -27,6 +27,11 @@ nnoremap <silent> ,*       *<C-O>:%s///gn<CR>
 
 nnoremap ,c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
+if executable('dolphin')
+    nnoremap <silent> ,e :exec 'call system("dolphin .")' <bar> echo 'Opening current path...' <CR>
+    nnoremap <silent> ,o :exec 'call system("dolphin --select " . expand("%:p"))' <bar> echo 'Opening current file...' <CR>
+endif
+
 if has('clipboard')
     vnoremap <RightMouse> "+y
 endif
