@@ -160,6 +160,10 @@ autocmd FileType apache              setlocal commentstring=#\ %s
 autocmd FileType python,shell,coffee setlocal commentstring=#\ %s
 autocmd FileType java,c,cpp          setlocal commentstring=//\ %s
 
+" vim-visual-multi
+let g:VM_maps = {}
+let g:VM_maps['Exit'] = '<C-j>'
+
 " vim-floaterm
 if v:version >= 802
     let floaterm_wintype = 'popup'

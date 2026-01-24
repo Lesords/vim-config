@@ -135,16 +135,23 @@ source $HOME/.vim/vimrc
 | Mode          | Shortcut Keys | Action         |
 | ------------- | ------------- | -------------- |
 | Normal        | Ctrl + n      | Start selecting the (next) text |
+| Normal        | Ctrl + Up     | Create cursor upwards           |
+| Normal        | Ctrl + Down   | Create cursor downwards         |
 | Normal        | i, a, I, A    | Start insert mode               |
-| Visual-Multi  | Esc	        | Exit Visual Multi Mode          |
+| Visual-Multi  | Ctrl + j	    | Exit Visual Multi Mode          |
+| Visual-Multi  | Tab	        | Switch between 'cursor' and 'extend' mode          |
+| Visual-Multi  | s	            | Enter select mode               |
 | Visual-Multi  | n	            | find next (same as C-n)         |
 | Visual-Multi  | N	            | find previous                   |
 | Visual-Multi  | ]	            | goto next                       |
 | Visual-Multi  | [	            | goto previous                   |
 | Visual-Multi  | q	            | skip and go to next             |
 | Visual-Multi  | Q	            | remove region                   |
-| Visual-Multi  | C-f	        | fast forward (go to first region in next page)      |
-| Visual-Multi  | C-b	        | fast backward (go to first region in previous page) |
+
+Tips:
+- `si(`: select inside `()`
+- `st;`: select to the next `;`
+- `g/<string>`: go to `<string>`
 
 ## Signify
 
