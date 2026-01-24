@@ -217,6 +217,23 @@ source $HOME/.vim/vimrc
 | Normal   | F10           | Create a new terminal(split) |
 | Terminal | F10           | Create a new terminal(split) |
 
+## Vim Lsp
+
+| Mode   | Shortcut Keys | Action         |
+| ------ | ------------- | -------------- |
+| Normal | gd            | lsp definition |
+| Normal | gt            | lsp type definition |
+| Normal | gi            | lsp implementation  |
+| Normal | gr            | lsp references      |
+| Normal | gs            | lsp document symbol search  |
+| Normal | gS            | lsp workspace symbol search |
+| Normal | ,rn           | lsp rename |
+| Normal | [g            | lsp previous diagnostic |
+| Normal | g]            | lsp next diagnostic     |
+| Normal | K             | lsp hover       |
+| Normal | Ctrl + d      | lsp scroll down |
+| Normal | Ctrl + u      | lsp scroll up   |
+
 ## Clang Format
 
 | Mode   | Shortcut Keys | Action         |
