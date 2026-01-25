@@ -292,3 +292,8 @@ Tips:
 ![vim-Leaderf](https://raw.githubusercontent.com/Lesords/ImageHost/main/Repository/vim-config/vim-Leaderf.png)
 
 ![vim-floaterm-vifm](https://raw.githubusercontent.com/Lesords/ImageHost/main/Repository/vim-config/vim-floaterm-vifm.png)
+
+# Reference
+
+- [Vim Visual Cheat Sheet](https://hamwaves.com/vim.tutorial/en/index.html)
+- [Vim Cheat Sheet](https://vim.rtorr.com/)
