@@ -79,3 +79,6 @@
 [submodule "vim-lsp-settings"]
 	path = plugged/vim-lsp-settings
 	url = https://github.com/mattn/vim-lsp-settings.git
+[submodule "vim-obsession"]
+	path = plugged/vim-obsession
+	url = https://github.com/tpope/vim-obsession.git

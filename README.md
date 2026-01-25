@@ -153,6 +153,12 @@ Tips:
 - `st;`: select to the next `;`
 - `g/<string>`: go to `<string>`
 
+## Obsession
+
+| Mode   | Shortcut Keys | Action           |
+| ------ | ------------- | ---------------- |
+| Normal | ,s            | Toggle Obsession |
+
 ## Signify
 
 | Mode   | Shortcut Keys | Action         |

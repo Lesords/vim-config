@@ -21,6 +21,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow'
 Plug 'itchyny/lightline.vim'
 
+Plug 'tpope/vim-obsession'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-surround'
 Plug 'wellle/context.vim'
@@ -97,7 +98,18 @@ let g:rainbow_active = 1
 set laststatus=2
 set showtabline=2
 
-let g:filenameAndMethod = '%{LightlineFilename()}'.
+function! GetObsessionStatus() abort
+    let status = ObsessionStatus()
+    return status == '' ? '[N]' : status
+endfunction
+
+function! LightlineFilename()
+    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    let relativepath = expand('%:F') !=# '' ? expand('%:F') : '[No Name]'
+    return winwidth(0) > 70 ? relativepath : filename
+endfunction
+
+let g:filenameAndMethod = '%{GetObsessionStatus()} %{LightlineFilename()}'.
             \ '%#LightlineLeft_active_0_1#%{NearestMethodOrFunction()}'.
             \ '%#LightlineLeft_active_1#'
 let g:lightline = {
@@ -114,12 +126,6 @@ let g:lightline = {
       \   'method': 'NearestMethodOrFunction',
       \ },
       \ }
-
-function! LightlineFilename()
-    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-    let relativepath = expand('%:F') !=# '' ? expand('%:F') : '[No Name]'
-    return winwidth(0) > 70 ? relativepath : filename
-endfunction
 
 " startify
 function! s:gitModified()

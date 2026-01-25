@@ -67,6 +67,9 @@ vnoremap <Leader>a=        :Tabularize /=<CR>
 nnoremap <Leader>a:        :Tabularize /:\zs<CR>
 vnoremap <Leader>a:        :Tabularize /:\zs<CR>
 
+" obsession
+nnoremap <leader>s         :Obsession<cr>
+
 " Signify
 nnoremap d               :SignifyToggle<cr>
 inoremap d               :SignifyToggle<cr>
