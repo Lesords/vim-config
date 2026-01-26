@@ -121,6 +121,11 @@ inoremap <silent> m      <C-o>:Fern . -drawer -toggle -reveal=% -stay<cr>
 noremap  <silent> p      :UndotreeToggle<cr>
 noremap  <silent> n      :Vista!!<cr>
 
+" asyncomplete
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
 if has('vim9script') && v:version >= 901
     nnoremap <Space>ff <scriptcmd>vim9cmd scope#fuzzy#File()<cr>
     nnoremap <Space>fs <scriptcmd>vim9cmd scope#fuzzy#Grep('rg --vimgrep --smart-case')<cr>

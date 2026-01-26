@@ -59,6 +59,8 @@ endif
 if ( g:vim_lsp_enabled == 'yes' )
     Plug 'prabirshrestha/vim-lsp'
     Plug 'mattn/vim-lsp-settings'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
 endif
 
 if has('vim9script') && v:version >= 900

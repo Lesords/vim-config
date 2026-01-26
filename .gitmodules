@@ -82,3 +82,9 @@
 [submodule "vim-obsession"]
 	path = plugged/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
+[submodule "asyncomplete.vim"]
+	path = plugged/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim.git
+[submodule "asyncomplete-lsp.vim"]
+	path = plugged/asyncomplete-lsp.vim
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim.git
