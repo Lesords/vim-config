@@ -76,6 +76,13 @@ endif
 if has('nvim')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'CopilotC-Nvim/CopilotChat.nvim'
+
+    Plug 'olimorris/codecompanion.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
+
+    Plug 'MeanderingProgrammer/render-markdown.nvim'
+    Plug 'nvim-mini/mini.nvim'
 endif
 call plug#end()
 
