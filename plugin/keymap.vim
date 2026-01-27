@@ -93,6 +93,7 @@ autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
 
 " Leaderf
 if has('python') || has('python3')
+    noremap <leader>ff  :<C-U><C-R>=printf("Leaderf file %s", "")<CR><CR>
     noremap <leader>fb  :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
     noremap <leader>fm  :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
     noremap <leader>fw  :<C-U><C-R>=printf("Leaderf window %s", "")<CR><CR>

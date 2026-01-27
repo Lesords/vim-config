@@ -22,34 +22,34 @@ Plug 'luochen1990/rainbow'
 Plug 'itchyny/lightline.vim'
 
 Plug 'tpope/vim-obsession'
-Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify', { 'on': ['SignifyToggle', 'SignifyDiff', 'SignifyHunkDiff', 'SignifyHunkUndo'] }
 Plug 'tpope/vim-surround'
-Plug 'wellle/context.vim'
+Plug 'wellle/context.vim', { 'for': ['c', 'cpp'] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-expand-region'
-Plug 'easymotion/vim-easymotion'
-Plug 'godlygeek/tabular'
+Plug 'easymotion/vim-easymotion', { 'on': ['<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-sn)', '<Plug>(easymotion-tn)', '<Plug>(easymotion-j)', '<Plug>(easymotion-k)'] }
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'rhysd/vim-clang-format'
 
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/fern.vim', { 'on': 'Fern' }
+Plug 'lambdalisue/fern-renderer-nerdfont.vim', { 'on': 'Fern' }
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
-Plug 'mbbill/undotree'
-Plug 'voldikss/vim-floaterm'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'voldikss/vim-floaterm', { 'on': ['FloatermToggle', 'FloatermNew', 'FloatermPrev', 'FloatermNext', 'FloatermUpdate'] }
 
 " Plug 'dense-analysis/ale' " slow bug
 
 if !exists('$MSYSTEM')
     Plug 'mhinz/vim-startify'
-    Plug 'liuchengxu/vista.vim'
+    Plug 'liuchengxu/vista.vim', { 'on': 'Vista!!' }
     Plug 'christoomey/vim-tmux-navigator'
 endif
 
 if has('python') || has('python3')
-    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension', 'on': ['Leaderf', 'LeaderfFile', 'LeaderfBuffer', 'LeaderfMru'] }
 endif
 
 if ( g:cocEnabled == 'yes' )
@@ -57,8 +57,8 @@ if ( g:cocEnabled == 'yes' )
 endif
 
 if ( g:vim_lsp_enabled == 'yes' )
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
+    Plug 'prabirshrestha/vim-lsp', { 'for': ['c', 'cpp'] }
+    Plug 'mattn/vim-lsp-settings', { 'for': ['c', 'cpp'] }
     Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
 endif
@@ -194,7 +194,6 @@ if has('python') || has('python3')
     let g:Lf_UseCache = 0
     let g:Lf_UseVersionControlTool = 0
     let g:Lf_IgnoreCurrentBufferName = 1
-    let g:Lf_ShortcutF      = "<leader>ff"
     let g:Lf_PopupWidth     = 0.45
     let g:Lf_WindowPosition = 'popup'
     let g:Lf_JumpToExistingWindow = 0
