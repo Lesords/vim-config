@@ -251,8 +251,8 @@ Tips:
 
 | Mode   | Shortcut Keys | Action         |
 | ------ | ------------- | -------------- |
-| Normal | Ctrl + m      | Format all code |
-| Visual | Ctrl + m      | Format the currently selected code |
+| Normal | ,cf           | Format all code |
+| Visual | ,cf           | Format the currently selected code |
 
 ## Code Motion
 

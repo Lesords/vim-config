@@ -93,8 +93,8 @@ xnoremap ac                <plug>(signify-motion-outer-visual)
 nnoremap <leader>[         :ContextToggleWindow<cr>
 
 " vim-clang-format
-autocmd FileType c,cpp,objc noremap <silent> <C-m>  :ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <silent> <C-m> :ClangFormat<CR>
+autocmd FileType c,cpp,objc noremap <silent> <leader>cf  :ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <silent> <leader>cf :ClangFormat<CR>
 
 " Leaderf
 if has('python') || has('python3')
