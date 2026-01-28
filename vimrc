@@ -25,7 +25,9 @@ Plug 'tpope/vim-obsession'
 Plug 'mhinz/vim-signify', { 'on': ['SignifyToggle', 'SignifyDiff', 'SignifyHunkDiff', 'SignifyHunkUndo'] }
 Plug 'tpope/vim-surround'
 Plug 'wellle/context.vim', { 'for': ['c', 'cpp'] }
-Plug 'jiangmiao/auto-pairs'
+if !has('nvim') 
+    Plug 'jiangmiao/auto-pairs'
+endif
 Plug 'tpope/vim-commentary'
 Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-expand-region'
