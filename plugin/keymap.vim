@@ -22,6 +22,11 @@ nnoremap <silent> <BS>     gt
 nnoremap <silent> <BS>   gT
 nnoremap <silent> T        :tabnew<CR>
 
+cnoremap <C-A>             <Home>
+cnoremap <C-E>             <End>
+cnoremap b               <S-Left>
+cnoremap f               <S-Right>
+
 " count number of matches of a pattern
 nnoremap <silent> ,*       *<C-O>:%s///gn<CR>
 
