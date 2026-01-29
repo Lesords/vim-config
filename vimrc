@@ -17,7 +17,7 @@ let g:cpp_simple_highlight     = 1
 
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
-Plug 'Yggdroot/indentLine'
+Plug 'preservim/vim-indent-guides'
 Plug 'luochen1990/rainbow'
 Plug 'itchyny/lightline.vim'
 
@@ -95,10 +95,8 @@ let g:gruvbox_invert_selection = 0
 colorscheme gruvbox
 
 " indentLine
-let g:indentLine_color_term   = 239
-let g:indentLine_char_list    = ['|', '¦', '┆', '┊']
-let g:vim_json_conceal        = 0
-let g:markdown_syntax_conceal = 0
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'startify']
 
 " rainbow
 let g:rainbow_active = 1
