@@ -24,7 +24,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-obsession'
 Plug 'mhinz/vim-signify', { 'on': ['SignifyToggle', 'SignifyDiff', 'SignifyHunkDiff', 'SignifyHunkUndo'] }
 Plug 'tpope/vim-surround'
-Plug 'wellle/context.vim', { 'for': ['c', 'cpp'] }
+Plug 'wellle/context.vim'
 if !has('nvim') 
     Plug 'jiangmiao/auto-pairs'
 endif
@@ -59,8 +59,8 @@ if ( g:cocEnabled == 'yes' )
 endif
 
 if ( g:vim_lsp_enabled == 'yes' )
-    Plug 'prabirshrestha/vim-lsp', { 'for': ['c', 'cpp'] }
-    Plug 'mattn/vim-lsp-settings', { 'for': ['c', 'cpp'] }
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'mattn/vim-lsp-settings'
     Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
 endif
