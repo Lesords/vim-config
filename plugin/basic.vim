@@ -9,6 +9,7 @@ set cinoptions=g0,N-s,(0
 set autoindent      " 设置自动缩进
 set autoread        " 文件变化时自动重读
 set number          " 显示行号
+set relativenumber  " 显示相对行号
 set ruler           " 显示光标位置
 set showmatch       " 高亮显示匹配的括号
 set showcmd         " 右下角显示命令
