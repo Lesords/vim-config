@@ -46,6 +46,10 @@ source $HOME/.vim/vimrc
 | Normal | Alt + j       | Go to downer window |
 | Normal | Alt + k       | Go to upper window  |
 | Normal | Alt + l       | Go to right window  |
+| Visual | Alt + h       | Go to left window   |
+| Visual | Alt + j       | Go to downer window |
+| Visual | Alt + k       | Go to upper window  |
+| Visual | Alt + l       | Go to right window  |
 | Terminal | Alt + h     | Go to left window   |
 | Terminal | Alt + j     | Go to downer window |
 | Terminal | Alt + k     | Go to upper window  |
