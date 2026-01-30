@@ -79,6 +79,11 @@ if has('nvim')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'CopilotC-Nvim/CopilotChat.nvim'
 
+    Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
+    Plug 'fang2hou/blink-copilot'
+    Plug 'pxwg/blink-cmp-copilot-chat'
+    Plug 'github/copilot.vim'
+
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'MeanderingProgrammer/render-markdown.nvim'
     " Used by render-markdown.nvim
