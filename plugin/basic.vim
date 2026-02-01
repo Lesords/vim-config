@@ -39,9 +39,9 @@ endif
 set backspace=indent,eol,start
 
 if v:version < 802
-    set fillchars=vert:\⎜,fold:-
+    set fillchars=vert:\⎜,fold:\ ,foldopen:,foldclose:,foldsep:│
 else
-    set fillchars=eob:\ ,vert:\┃,fold:-
+    set fillchars=eob:\ ,vert:\┃,fold:\ ,foldopen:,foldclose:,foldsep:│
 endif
 
 syntax   on
