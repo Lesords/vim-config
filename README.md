@@ -289,6 +289,42 @@ Tips:
 | ------ | ------------- | -------------- |
 | Normal | Space + cc    | Open Copiloat Chat |
 
+# Command
+
+## vim surround
+
+| Command | Action         |
+| ------- | -------------- |
+| ds{char} | delete surrounding {char} |
+| cs{old\_char}{new\_char} | change surrounding {old\_char} to {new\_char} |
+| ys{motion}{char} | surround {motion} with {char} |
+| v{motion}S{char} | surround with {char} |
+
+aliases:
+- b, B, r, and a are aliases for ), }, ], and >
+- t is a pair of HTML or XML tags
+- t is a pair of HTML or XML tags
+- w, W, and s correspond to a |word|, a |WORD|, and a |sentence|
+- A p represents a |paragraph|
+- If f is used, the text is wrapped with () parentheses; F adds additional spaces inside the parentheses. <C-F> inserts the
+function name inside the parentheses
+
+example:
+- `ds"`: change `"hello world"` to `hello world`
+- `dst`: change `<div>hello world</div>` to `hello world`
+- `cs"<div>`: change `"hello world"` to `<div>hello world</div>`
+- `cst<p>`: change `<div>hello world</div>` to `<p>hello world</p>`
+- `cs")`: change `"hello world"` to `(hello world)`
+- `cs"(`: change `"hello world"` to `( hello world )`
+- `ysi"(`: change `"hello world"` to `"( hello world )"`
+- `ysiw)`: change `"hello world"` to `"(hello) world"`
+- `ysiwb`: change `"hello world"` to `"(hello) world"`
+- `yssr`: change the line `"hello world"` to `["hello world"]`
+- `ysWfprint<cr>`: chaneg `"hello"` to `print("hello")`
+- `yssFprint<cr>`: chaneg `"hello world"` to `print( "hello world" )`
+- `ysW<C-f>print<cr>`: chaneg `"hello"` to `(print "hello")`
+- `veeSr`: change the line `hello world` to `[hello world]`
+
 # Screenshots
 
 ![vim](https://raw.githubusercontent.com/Lesords/ImageHost/main/Repository/vim-config/vim.png)
