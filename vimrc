@@ -34,6 +34,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion', { 'on': ['<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-sn)', '<Plug>(easymotion-tn)', '<Plug>(easymotion-j)', '<Plug>(easymotion-k)'] }
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'rhysd/vim-clang-format'
+Plug 'tpope/vim-fugitive'
 
 Plug 'lambdalisue/fern.vim', { 'on': 'Fern' }
 Plug 'lambdalisue/fern-renderer-nerdfont.vim', { 'on': 'Fern' }
