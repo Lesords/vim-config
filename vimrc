@@ -84,6 +84,9 @@ if has('nvim')
     Plug 'pxwg/blink-cmp-copilot-chat'
     Plug 'github/copilot.vim'
 
+    Plug 'kevinhwang91/nvim-ufo'
+    Plug 'kevinhwang91/promise-async'
+
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'MeanderingProgrammer/render-markdown.nvim'
     " Used by render-markdown.nvim
