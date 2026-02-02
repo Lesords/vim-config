@@ -37,10 +37,12 @@ function! ChangeLineStyle()
     if g:linestyle == 'yes'
         let g:linestyle = 'no'
         set nonumber
+        set norelativenumber
         set signcolumn=no
     else
         let g:linestyle = 'yes'
         set number
+        set relativenumber
         set signcolumn=yes
     endif
 endfunction
