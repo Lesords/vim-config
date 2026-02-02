@@ -92,6 +92,9 @@ if has('nvim')
     Plug 'MeanderingProgrammer/render-markdown.nvim'
     " Used by render-markdown.nvim
     Plug 'nvim-mini/mini.nvim'
+
+    Plug 'folke/noice.nvim'
+    Plug 'MunifTanjim/nui.nvim'
 endif
 call plug#end()
 
