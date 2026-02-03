@@ -2,15 +2,20 @@ noremap  <silent> h      <C-w>h
 noremap  <silent> j      <C-w>j
 noremap  <silent> k      <C-w>k
 noremap  <silent> l      <C-w>l
-vnoremap  <silent> h      <C-w>h
-vnoremap  <silent> j      <C-w>j
-vnoremap  <silent> k      <C-w>k
-vnoremap  <silent> l      <C-w>l
+vnoremap <silent> h      <C-w>h
+vnoremap <silent> j      <C-w>j
+vnoremap <silent> k      <C-w>k
+vnoremap <silent> l      <C-w>l
 tnoremap <silent> h      <C-w>h
 tnoremap <silent> j      <C-w>j
 tnoremap <silent> k      <C-w>k
 tnoremap <silent> l      <C-w>l
 tnoremap <silent> n      <C-w>N
+
+inoremap <silent> <C-a>    <Esc>^i
+inoremap <silent> <C-e>    <Esc>$a
+inoremap <silent> b      <Esc>bi
+inoremap <silent> f      <Esc>ea
 
 noremap  <silent> gp       <C-^>
 noremap  <silent> <C-q>    :q<CR>

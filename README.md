@@ -74,6 +74,10 @@ source $HOME/.vim/vimrc
 | Normal | Alt + m       | Open Fern           |
 | Normal | Alt + p       | Open UndoTree       |
 | Normal | Alt + n       | Open Vista          |
+| Insert | Ctrl + a      | Jump to the beginning of the line    |
+| Insert | Ctrl + e      | Jump to the end of the line          |
+| Insert | Alt + f       | Jump to the previous word            |
+| Insert | Alt + b       | Jump to the next word                |
 
 **Linux with KDE**
 
