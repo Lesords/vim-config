@@ -79,6 +79,8 @@ endif
 if has('nvim')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'CopilotC-Nvim/CopilotChat.nvim'
+    Plug 'olimorris/codecompanion.nvim'
+    Plug 'franco-ruggeri/codecompanion-spinner.nvim'
 
     Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
     Plug 'fang2hou/blink-copilot'
