@@ -108,7 +108,7 @@ colorscheme gruvbox
 
 " indentLine
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'man', 'startify']
+let g:indent_guides_exclude_filetypes = ['help', 'man', 'fern', 'startify', 'copilot-chat']
 
 " rainbow
 let g:rainbow_active = 1
@@ -190,7 +190,7 @@ let g:VM_maps = {}
 let g:VM_maps['Exit'] = '<C-j>'
 
 " vim-floaterm
-if v:version >= 802
+if v:version >= 802 || has('nvim')
     let floaterm_wintype = 'popup'
     let floaterm_height  = 0.8
 else
