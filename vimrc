@@ -120,6 +120,25 @@ let g:rainbow_active = 1
 set laststatus=2
 set showtabline=2
 
+function! CodeCompanionGetModel()
+lua << EOF
+    local cc = require("codecompanion")
+    local chat = cc.buf_get_chat(vim.api.nvim_get_current_buf()) or cc.last_chat()
+    local model_name = "Unknown"
+
+    if chat and chat.adapter then
+        if chat.adapter.model and chat.adapter.model.name then
+            model_name = chat.adapter.model.name
+        elseif chat.adapter.schema and chat.adapter.schema.model then
+            model_name = chat.adapter.schema.model.default
+        end
+    end
+
+    vim.g.codecompanion_current_model_name = model_name
+EOF
+    return ' (' . g:codecompanion_current_model_name . ')'
+endfunction
+
 function! GetObsessionStatus() abort
     if &filetype == 'codecompanion'
         return ''
@@ -130,7 +149,7 @@ endfunction
 
 function! LightlineFilename()
     if &filetype == 'codecompanion'
-        return '🤖 CodeCompanion'
+        return '🤖 CodeCompanion' . CodeCompanionGetModel()
     endif
     let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
     let relativepath = expand('%:F') !=# '' ? expand('%:F') : '[No Name]'
