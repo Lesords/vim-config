@@ -90,7 +90,7 @@ if has('nvim')
     Plug 'kevinhwang91/nvim-ufo'
     Plug 'kevinhwang91/promise-async'
 
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'master', 'do': ':TSUpdate'}
     Plug 'MeanderingProgrammer/render-markdown.nvim'
     " Used by render-markdown.nvim
     Plug 'nvim-mini/mini.nvim'
@@ -111,7 +111,7 @@ colorscheme gruvbox
 
 " indentLine
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'man', 'fern', 'startify', 'copilot-chat']
+let g:indent_guides_exclude_filetypes = ['help', 'man', 'fern', 'startify', 'copilot-chat', 'codecompanion']
 
 " rainbow
 let g:rainbow_active = 1
