@@ -121,17 +121,44 @@ set laststatus=2
 set showtabline=2
 
 function! GetObsessionStatus() abort
+    if &filetype == 'codecompanion'
+        return ''
+    endif
     let status = ObsessionStatus()
-    return status == '' ? '[N]' : status
+    return status == '' ? '[N] ' : status.' '
 endfunction
 
 function! LightlineFilename()
+    if &filetype == 'codecompanion'
+        return '🤖 CodeCompanion'
+    endif
     let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
     let relativepath = expand('%:F') !=# '' ? expand('%:F') : '[No Name]'
     return winwidth(0) > 70 ? relativepath : filename
 endfunction
 
-let g:filenameAndMethod = '%{GetObsessionStatus()} %{LightlineFilename()}'.
+function! LightlineFileformat()
+    if &filetype == 'codecompanion'
+        return ''
+    endif
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFileEncoding()
+    if &filetype == 'codecompanion'
+        return ''
+    endif
+  return winwidth(0) > 70 ? &fileencoding : ''
+endfunction
+
+function! LightlineFiletype()
+    if &filetype == 'codecompanion'
+        return ''
+    endif
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+let g:filenameAndMethod = '%{GetObsessionStatus()}%{LightlineFilename()}'.
             \ '%#LightlineLeft_active_0_1#%{NearestMethodOrFunction()}'.
             \ '%#LightlineLeft_active_1#'
 let g:lightline = {
@@ -146,6 +173,10 @@ let g:lightline = {
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
       \   'method': 'NearestMethodOrFunction',
+      \   'codecompanion': 'LightlineCodeCompanion',
+      \   'fileformat': 'LightlineFileformat',
+      \   'fileencoding': 'LightlineFileEncoding',
+      \   'filetype': 'LightlineFiletype',
       \ },
       \ }
 
