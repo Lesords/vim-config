@@ -66,7 +66,6 @@ endif
 
 if has('vim9script') && v:version >= 900
     Plug 'github/copilot.vim'
-    Plug 'DanBradbury/copilot-chat.vim'
 endif
 
 if has('vim9script') && v:version >= 901
@@ -83,7 +82,7 @@ if has('nvim')
     Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
     Plug 'fang2hou/blink-copilot'
     Plug 'pxwg/blink-cmp-copilot-chat'
-    Plug 'github/copilot.vim'
+    Plug 'zbirenbaum/copilot.lua'
 
     Plug 'kevinhwang91/nvim-ufo'
     Plug 'kevinhwang91/promise-async'
