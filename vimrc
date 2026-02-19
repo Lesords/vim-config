@@ -87,6 +87,7 @@ if has('nvim')
 
     Plug 'kevinhwang91/nvim-ufo'
     Plug 'kevinhwang91/promise-async'
+    Plug 'lukas-reineke/indent-blankline.nvim'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'master', 'do': ':TSUpdate'}
     Plug 'MeanderingProgrammer/render-markdown.nvim'
