@@ -25,9 +25,7 @@ Plug 'tpope/vim-obsession'
 Plug 'mhinz/vim-signify', { 'on': ['SignifyToggle', 'SignifyDiff', 'SignifyHunkDiff', 'SignifyHunkUndo'] }
 Plug 'tpope/vim-surround'
 Plug 'wellle/context.vim'
-if !has('nvim') 
-    Plug 'jiangmiao/auto-pairs'
-endif
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'mg979/vim-visual-multi'
 Plug 'terryma/vim-expand-region'
@@ -110,7 +108,7 @@ let g:gruvbox_invert_selection = 0
 colorscheme gruvbox
 
 " indentLine
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_enable_on_vim_startup = has('nvim') ? 0 : 1
 let g:indent_guides_exclude_filetypes = ['help', 'man', 'fern', 'startify', 'copilot-chat', 'codecompanion']
 
 " rainbow
