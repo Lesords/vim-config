@@ -1,5 +1,5 @@
 " code block movement
-function! s:moveup_line()
+function! motion#Moveup_line()
 	let cur_pos = getpos('.')	"获取当前光标位置
 	"如果已经是最上一行，则直接返回
 	if cur_pos[1] == 1
@@ -13,7 +13,7 @@ function! s:moveup_line()
 	call setpos('.',cur_pos)	"修改当前光标位置
 endfunction
 
-function! s:movedown_line()
+function! motion#Movedown_line()
 	let cur_pos = getpos('.')	"获取当前光标位置
 	"如果已经是最底一行，则直接返回
 	if cur_pos[1] == line('$')
@@ -27,7 +27,7 @@ function! s:movedown_line()
 	call setpos('.',cur_pos)	"修改当前光标位置
 endfunction
 
-function! s:moveup_multlines() range
+function! motion#Moveup_multlines() range
 	"获取选择范围的端点的位置信息
 	let start_mark = getpos("'<")
 	let end_mark = getpos("'>")
@@ -49,7 +49,7 @@ function! s:moveup_multlines() range
 	call setpos('.',save_curpos)
 endfunction
 
-function! s:movedown_multlines() range
+function! motion#Movedown_multlines() range
 	"获取选择范围的端点的位置信息
 	let start_mark = getpos("'<")
 	let end_mark = getpos("'>")
@@ -70,21 +70,3 @@ function! s:movedown_multlines() range
 	call setpos("'>",end_mark)
 	call setpos('.',save_curpos)
 endfunction
-
-
-
-if v:progpath =~? 'exe'
-    noremap <silent> <A-K> :call <SID>moveup_line()<CR>
-    noremap <silent> <A-J> :call <SID>movedown_line()<CR>
-    inoremap <silent> <A-K> <ESC>:call <SID>moveup_line()<CR>a
-    inoremap <silent> <A-J> <ESC>:call <SID>movedown_line()<CR>a
-    vnoremap <silent> <A-K> :call <SID>moveup_multlines()<CR>gv "后面必须添加‘gv’才可重新进入可视模式
-    vnoremap <silent> <A-J> :call <SID>movedown_multlines()<CR>gv
-endif
-
-noremap <silent> K :call <SID>moveup_line()<CR>
-noremap <silent> J :call <SID>movedown_line()<CR>
-inoremap <silent> K <ESC>:call <SID>moveup_line()<CR>a
-inoremap <silent> J <ESC>:call <SID>movedown_line()<CR>a
-vnoremap <silent> K :call <SID>moveup_multlines()<CR>gv "后面必须添加‘gv’才可重新进入可视模式
-vnoremap <silent> J :call <SID>movedown_multlines()<CR>gv

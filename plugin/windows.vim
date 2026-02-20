@@ -35,6 +35,14 @@ if v:progpath =~? 'exe'
     noremap <A-s> :w<CR>
     inoremap <A-s> <esc>:w<CR>
 
+    " motion
+    noremap <silent> <A-K> :call motion#Moveup_line()<CR>
+    noremap <silent> <A-J> :call motion#Movedown_line()<CR>
+    inoremap <silent> <A-K> <ESC>:call motion#Moveup_line()<CR>a
+    inoremap <silent> <A-J> <ESC>:call motion#Movedown_line()<CR>a
+    vnoremap <silent> <A-K> :call motion#Moveup_multlines()<CR>gv
+    vnoremap <silent> <A-J> :call motion#Movedown_multlines()<CR>gv
+
     noremap <silent> <A-t> :call ChangeCurrentPath()<CR>
     noremap <silent> <A-i> :call ChangeLineStyle()<CR>
 

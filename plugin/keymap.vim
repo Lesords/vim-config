@@ -52,6 +52,15 @@ endif
 
 noremap <silent> <C-RightMouse> <C-o>
 
+" motion
+noremap <silent> K :call motion#Moveup_line()<CR>
+noremap <silent> J :call motion#Movedown_line()<CR>
+inoremap <silent> K <ESC>:call motion#Moveup_line()<CR>a
+inoremap <silent> J <ESC>:call motion#Movedown_line()<CR>a
+vnoremap <silent> K :call motion#Moveup_multlines()<CR>gv
+vnoremap <silent> J :call motion#Movedown_multlines()<CR>gv
+
+
 
 " vim-floaterm
 nnoremap <silent> o      :FloatermToggle<CR>
