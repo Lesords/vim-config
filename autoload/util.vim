@@ -112,3 +112,11 @@ function! util#WindowToggle()
         wincmd =
     endif
 endfunction
+
+function! util#OpenFern()
+  if empty(expand('%'))
+    execute 'Fern . -drawer -toggle'
+  else
+    execute 'Fern . -drawer -toggle -reveal=%'
+  endif
+endfunction

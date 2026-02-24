@@ -140,8 +140,8 @@ if has('python') || has('python3')
     noremap <silent> <C-LeftMouse> :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 endif
 
-noremap  <silent> m      :Fern . -drawer -toggle -reveal=%<cr>
-inoremap <silent> m      <C-o>:Fern . -drawer -toggle -reveal=% -stay<cr>
+nnoremap <silent> m      :call util#OpenFern()<CR>
+inoremap <silent> m      <C-o>:call util#OpenFern()<cr>
 noremap  <silent> p      :UndotreeToggle<cr>
 noremap  <silent> n      :Vista!!<cr>
 
