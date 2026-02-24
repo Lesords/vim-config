@@ -1,6 +1,21 @@
 " lightline
 set laststatus=2
 set showtabline=2
+let s:n_requests = 0
+
+function! s:OnRequestStarted() abort
+  let s:n_requests += 1
+endfunction
+
+function! s:OnRequestFinished() abort
+  let s:n_requests -= 1
+endfunction
+
+augroup CodeCompanionAutoCmd
+  autocmd!
+  autocmd User CodeCompanionRequestStarted call s:OnRequestStarted()
+  autocmd User CodeCompanionRequestFinished call s:OnRequestFinished()
+augroup END
 
 function! CodeCompanionGetModel()
 lua << EOF
@@ -54,7 +69,7 @@ endfunction
 
 function! LightlineFiletype()
     if &filetype == 'codecompanion'
-        return ''
+        return s:n_requests > 0 ? '  Processing...' : ''
     endif
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
