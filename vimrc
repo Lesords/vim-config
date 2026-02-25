@@ -88,6 +88,8 @@ if has('nvim')
     Plug 'rcarriga/nvim-notify',                        { 'dir': '~/.config/nvim/plugged/nvim-notify' }
     Plug 'MunifTanjim/nui.nvim',                        { 'dir': '~/.config/nvim/plugged/nui.nvim' }
     Plug 'nvim-telescope/telescope.nvim',               { 'dir': '~/.config/nvim/plugged/telescope.nvim' }
+
+    Plug 'yetone/avante.nvim',                          { 'branch': 'main', 'do': 'make' }
 endif
 call plug#end()
 
