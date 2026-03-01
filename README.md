@@ -339,5 +339,6 @@ example:
 
 # Reference
 
+- [Plug List](./docs/plugin-list.md)
 - [Vim Visual Cheat Sheet](https://hamwaves.com/vim.tutorial/en/index.html)
 - [Vim Cheat Sheet](https://vim.rtorr.com/)
