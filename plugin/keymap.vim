@@ -53,8 +53,8 @@ endif
 noremap <silent> <C-RightMouse> <C-o>
 
 " motion
-noremap <silent> K :call motion#Moveup_line()<CR>
-noremap <silent> J :call motion#Movedown_line()<CR>
+noremap  <silent> K :call motion#Moveup_line()<CR>
+noremap  <silent> J :call motion#Movedown_line()<CR>
 inoremap <silent> K <ESC>:call motion#Moveup_line()<CR>a
 inoremap <silent> J <ESC>:call motion#Movedown_line()<CR>a
 vnoremap <silent> K :call motion#Moveup_multlines()<CR>gv
@@ -85,22 +85,22 @@ nnoremap <Leader>j         <Plug>(easymotion-j)
 nnoremap <Leader>k         <Plug>(easymotion-k)
 
 " Tabularize
-nnoremap <Leader>a=        :Tabularize /=<CR>
-vnoremap <Leader>a=        :Tabularize /=<CR>
-nnoremap <Leader>a:        :Tabularize /:\zs<CR>
-vnoremap <Leader>a:        :Tabularize /:\zs<CR>
+nnoremap <silent> <Leader>a=        :Tabularize /=<CR>
+vnoremap <silent> <Leader>a=        :Tabularize /=<CR>
+nnoremap <silent> <Leader>a:        :Tabularize /:\zs<CR>
+vnoremap <silent> <Leader>a:        :Tabularize /:\zs<CR>
 
 " obsession
-nnoremap <leader>s         :Obsession<cr>
+nnoremap <silent> <leader>s         :Obsession<cr>
 
 " Signify
-nnoremap d               :SignifyToggle<cr>
-inoremap d               :SignifyToggle<cr>
-nnoremap <leader>gd        :SignifyDiff<cr>
-nnoremap <leader>gp        :SignifyHunkDiff<cr>
-nnoremap <leader>gu        :SignifyHunkUndo<cr>
-nnoremap <leader>gj        <plug>(signify-next-hunk)
-nnoremap <leader>gk        <plug>(signify-prev-hunk)
+nnoremap <silent> d               :SignifyToggle<cr>
+inoremap <silent> d               :SignifyToggle<cr>
+nnoremap <silent> <leader>gd        :SignifyDiff<cr>
+nnoremap <silent> <leader>gp        :SignifyHunkDiff<cr>
+nnoremap <silent> <leader>gu        :SignifyHunkUndo<cr>
+nnoremap <silent> <leader>gj        <plug>(signify-next-hunk)
+nnoremap <silent> <leader>gk        <plug>(signify-prev-hunk)
 " hunk text object
 onoremap ic                <plug>(signify-motion-inner-pending)
 xnoremap ic                <plug>(signify-motion-inner-visual)
@@ -111,31 +111,31 @@ xnoremap ac                <plug>(signify-motion-outer-visual)
 nnoremap <leader>[         :ContextToggleWindow<cr>
 
 " vim-clang-format
-autocmd FileType c,cpp,objc noremap <silent> <leader>cf  :ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <silent> <leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc noremap  <silent> <leader>cf  :ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <silent> <leader>cf  :ClangFormat<CR>
 
 " Leaderf
 if has('python') || has('python3')
-    noremap <leader>ff  :<C-U><C-R>=printf("Leaderf file %s", "")<CR><CR>
-    noremap <leader>fb  :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-    noremap <leader>fm  :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-    noremap <leader>fw  :<C-U><C-R>=printf("Leaderf window %s", "")<CR><CR>
-    noremap <leader>fl  :<C-U><C-R>=printf("Leaderf line --no-auto-preview %s", "")<CR><CR>
+    noremap <silent> <leader>ff  :<C-U><C-R>=printf("Leaderf file %s", "")<CR><CR>
+    noremap <silent> <leader>fb  :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+    noremap <silent> <leader>fm  :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+    noremap <silent> <leader>fw  :<C-U><C-R>=printf("Leaderf window %s", "")<CR><CR>
+    noremap <silent> <leader>fl  :<C-U><C-R>=printf("Leaderf line --no-auto-preview %s", "")<CR><CR>
 
-    noremap <leader>fa  :<C-U><C-R>=printf("Leaderf! rg --all-buffers -F -e %s ", expand("<cword>"))<CR>
-    noremap <leader>fc  :<C-U><C-R>=printf("Leaderf! rg -F -e %s -g *.{h,c,cpp}", expand("<cword>"))<CR>
-    noremap <leader>fs  :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -F -e \"%s\"", input("Please enter: "))<CR>
-    noremap f         :<C-U><C-R>=printf("Leaderf! rg --no-auto-preview -F -e %s ", expand("<cword>"))<CR>
-    xnoremap gf         :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
-    xnoremap gp         :<C-U><C-R>=printf("Leaderf! file --input %s ", leaderf#Rg#visual())<CR><CR>
-    noremap go          :<C-U>Leaderf! rg --recall<CR>
+    noremap <silent> <leader>fa  :<C-U><C-R>=printf("Leaderf! rg --all-buffers -F -e %s ", expand("<cword>"))<CR>
+    noremap <silent> <leader>fc  :<C-U><C-R>=printf("Leaderf! rg -F -e %s -g *.{h,c,cpp}", expand("<cword>"))<CR>
+    noremap <silent> <leader>fs  :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -F -e \"%s\"", input("Please enter: "))<CR>
+    noremap <silent> f         :<C-U><C-R>=printf("Leaderf! rg --no-auto-preview -F -e %s ", expand("<cword>"))<CR>
+    xnoremap <silent> gf         :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+    xnoremap <silent> gp         :<C-U><C-R>=printf("Leaderf! file --input %s ", leaderf#Rg#visual())<CR><CR>
+    noremap  <silent> go         :<C-U>Leaderf! rg --recall<CR>
 
-    noremap <silent> <leader>fg :Leaderf gtags --update<CR>
-    noremap <silent> <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-    noremap <silent> <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-    noremap <silent> <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-    noremap <silent> <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-    noremap <silent> <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+    noremap <silent> <leader>fg  :Leaderf gtags --update<CR>
+    noremap <silent> <leader>fr  :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+    noremap <silent> <leader>fd  :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+    noremap <silent> <leader>fo  :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+    noremap <silent> <leader>fn  :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+    noremap <silent> <leader>fp  :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
     noremap <silent> <C-LeftMouse> :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 endif
