@@ -62,35 +62,6 @@ if has('vim9script') && v:version >= 901
     Plug 'girishji/scope.vim'
     Plug 'vim-fuzzbox/fuzzbox.vim'
 endif
-
-if has('nvim')
-    Plug 'nvim-lua/plenary.nvim',                       { 'dir': '~/.config/nvim/plugged/plenary.nvim' }
-    Plug 'CopilotC-Nvim/CopilotChat.nvim',              { 'dir': '~/.config/nvim/plugged/CopilotChat.nvim' }
-    Plug 'olimorris/codecompanion.nvim',                { 'dir': '~/.config/nvim/plugged/codecompanion.nvim' }
-    Plug 'ravitemer/codecompanion-history.nvim',        { 'dir': '~/.config/nvim/plugged/codecompanion-history.nvim' }
-    Plug 'franco-ruggeri/codecompanion-spinner.nvim',   { 'dir': '~/.config/nvim/plugged/codecompanion-spinner.nvim' }
-
-    Plug 'saghen/blink.cmp',                            { 'tag': 'v1.*' }
-    Plug 'fang2hou/blink-copilot',                      { 'dir': '~/.config/nvim/plugged/blink-copilot' }
-    Plug 'pxwg/blink-cmp-copilot-chat',                 { 'dir': '~/.config/nvim/plugged/blink-cmp-copilot-chat' }
-    Plug 'zbirenbaum/copilot.lua',                      { 'dir': '~/.config/nvim/plugged/copilot.lua' }
-
-    Plug 'kevinhwang91/nvim-ufo',                       { 'dir': '~/.config/nvim/plugged/nvim-ufo' }
-    Plug 'kevinhwang91/promise-async',                  { 'dir': '~/.config/nvim/plugged/promise-async' }
-    Plug 'lukas-reineke/indent-blankline.nvim',         { 'dir': '~/.config/nvim/plugged/indent-blankline.nvim' }
-
-    Plug 'nvim-treesitter/nvim-treesitter',             { 'branch': 'master', 'do': ':TSUpdate' }
-    Plug 'MeanderingProgrammer/render-markdown.nvim',   { 'dir': '~/.config/nvim/plugged/render-markdown.nvim' }
-    " Used by render-markdown.nvim
-    Plug 'nvim-mini/mini.nvim',                         { 'dir': '~/.config/nvim/plugged/mini.nvim' }
-
-    Plug 'folke/noice.nvim',                            { 'dir': '~/.config/nvim/plugged/noice.nvim' }
-    Plug 'rcarriga/nvim-notify',                        { 'dir': '~/.config/nvim/plugged/nvim-notify' }
-    Plug 'MunifTanjim/nui.nvim',                        { 'dir': '~/.config/nvim/plugged/nui.nvim' }
-    Plug 'nvim-telescope/telescope.nvim',               { 'dir': '~/.config/nvim/plugged/telescope.nvim' }
-
-    Plug 'yetone/avante.nvim',                          { 'branch': 'main', 'do': 'make' }
-endif
 call plug#end()
 
 source ~/.vim/config/lang.vim

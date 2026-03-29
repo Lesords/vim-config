@@ -156,7 +156,3 @@ if has('vim9script') && v:version >= 901
     nnoremap <Space>fz :FuzzyFiles<CR>
     nnoremap <Space>fl :FuzzyInBuffer<CR>
 endif
-
-if has('vim9script') && v:version >= 900
-  nnoremap <Space>cc :CopilotChatOpen<CR>
-endif
