@@ -12,7 +12,7 @@ endif
 
 " gvim
 if has('gui_running')
-    set guifont=Consolas:h12
+    set guifont=JetBrainsMono\ Nerd\ Font\ 16
     set guioptions=eg
     set linespace=0
 endif
