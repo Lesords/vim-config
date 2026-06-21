@@ -104,23 +104,25 @@ source $HOME/.vim/vimrc
 
 | Shortcut Keys | Action         |
 | ------------- | -------------- |
-| o      | Toggle Folder |
-| h      | Close Folder |
-| l      | Expand folder (open file) |
+| h     | Close Folder |
+| l     | Expand folder (open file) |
+| i     | Reveal current file in tree |
 | !     | Show (disable) hidden files |
 | N     | create a new file |
 | t     | Open in a new tab |
 | T     | Open in a new tab (background) |
-| i     | Open the file in the upper window |
-| gi    | Open the file in the upper window (background) |
+| o     | Open the file in the upper window |
+| go    | Open the file in the upper window (stay) |
 | s     | Open the file in the left window |
-| gs    | Open the file in the left window (background) |
-| <     | Go to the previous directory |
-| >      | Enter the current directory |
-| BackSpace     | Go to the previous directory |
+| gs    | Open the file in the left window (stay) |
+| BackSpace  | Go to the previous directory |
 | Enter      | Enter the current directory |
 | r     | Reload the file |
 | cd    | Modify the current path |
+| y     | Yank absolute path (prefix) |
+| yn    | Yank filename |
+| yr    | Yank relative path |
+| yd    | Yank dirname |
 
 ## Expand Region
 

@@ -12,31 +12,37 @@ let g:fern#renderer#default#leaf_symbol      = ' '
 let g:fern#renderer#default#root_symbol      = '~ '
 let g:fern#renderer                          = "nerdfont"
 
-function! s:init_fern() abort
-    nmap <buffer><expr>
-                \ <Plug>(fern-my-expand-or-collapse)
-                \ fern#smart#leaf(
-                \   "\<Plug>(fern-action-collapse)",
-                \   "\<Plug>(fern-action-expand)",
-                \   "\<Plug>(fern-action-collapse)",
-                \ )
+function! s:fern_yank(kind) abort
+    let node = fern#helper#new().sync.get_cursor_node()
+    if empty(node) | return | endif
+    let value = a:kind ==# 'name'
+                \ ? fnamemodify(node._path, ':t')
+                \ : a:kind ==# 'relative'
+                \   ? fnamemodify(node._path, ':~:.')
+                \   : fnamemodify(node._path, ':h')
+    call setreg(v:register, value)
+    redraw | echo printf("Yanked %s: %s", a:kind, value)
+endfunction
 
-    nmap <buffer> <nowait> o <Plug>(fern-my-expand-or-collapse)
+function! s:init_fern() abort
     nmap <buffer> t <Plug>(fern-action-open:tabedit)
     nmap <buffer> T <Plug>(fern-action-open:tabedit)gT
-    nmap <buffer> i <Plug>(fern-action-open:split)
-    nmap <buffer> gi <Plug>(fern-action-open:split)<C-w>p
+    nmap <buffer> o <Plug>(fern-action-open:split)
+    nmap <buffer> go <Plug>(fern-action-open:split)<C-w>p
     nmap <buffer> s <Plug>(fern-action-open:vsplit)
     nmap <buffer> gs <Plug>(fern-action-open:vsplit)<C-w>p
 
-    nmap <buffer> <nowait> < <Plug>(fern-action-leave)
-    nmap <buffer> <nowait> > <Plug>(fern-action-enter)
     nmap <buffer> r <Plug>(fern-action-reload)
     nmap <buffer> R gg<Plug>(fern-action-reload)<C-o>
     nmap <buffer> cd <Plug>(fern-action-cd)
     nmap <buffer> CD gg<Plug>(fern-action-cd)<C-o>
 
     nmap <buffer> <LeftRelease> <Plug>(fern-action-open-or-expand)
+
+    nmap <buffer> y <Plug>(fern-action-yank:path)
+    nmap <buffer> yn :<C-u>call <SID>fern_yank('name')<CR>
+    nmap <buffer> yr :<C-u>call <SID>fern_yank('relative')<CR>
+    nmap <buffer> yd :<C-u>call <SID>fern_yank('dirname')<CR>
 endfunction
 
 augroup fern-custom
