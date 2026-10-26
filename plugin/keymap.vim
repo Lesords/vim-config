@@ -131,13 +131,13 @@ if has('python') || has('python3')
     noremap  <silent> go         :<C-U>Leaderf! rg --recall<CR>
 
     noremap <silent> <leader>fg  :Leaderf gtags --update<CR>
-    noremap <silent> <leader>fr  :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-    noremap <silent> <leader>fd  :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+    noremap <silent> <leader>fr  :<C-U>call util#LeaderfGtagsQuery('-r')<CR>
+    noremap <silent> <leader>fd  :<C-U>call util#LeaderfGtagsQuery('-d')<CR>
     noremap <silent> <leader>fo  :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
     noremap <silent> <leader>fn  :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
     noremap <silent> <leader>fp  :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
-    noremap <silent> <C-LeftMouse> :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+    noremap <silent> <C-LeftMouse> :<C-U>call util#LeaderfGtagsQuery('-d')<CR>
 endif
 
 nnoremap <silent> m      :call util#OpenFern()<CR>

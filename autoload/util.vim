@@ -120,3 +120,24 @@ function! util#OpenFern()
     execute 'Fern . -drawer -toggle -reveal=%'
   endif
 endfunction
+
+" Mirrors LeaderF gtagsExpl.py: GTAGS db lives under
+" ~/.cache/LeaderF/gtags/<project root, '/' replaced by '_'>(git projects only)
+function! util#LeaderfGtagsQuery(type) abort
+    let l:dir = fnamemodify(expand('%'), ':p:h')
+    let l:git = finddir('.git', escape(l:dir, ' ,') . ';')
+    if !empty(l:git)
+        " finddir returns a cwd-relative path; :p expands it, :h:h strips
+        " the trailing slash and the '.git' component
+        let l:root = fnamemodify(l:git, ':p:h:h')
+        let l:db = expand('~/.cache/LeaderF/gtags/')
+                    \ . substitute(l:root, '/', '_', 'g') . '/GTAGS'
+        if filereadable(l:db)
+            execute printf("Leaderf! gtags %s %s --auto-jump", a:type, expand("<cword>"))
+            return
+        endif
+    endif
+    echohl WarningMsg
+    echom "No GTAGS db for this project, run <leader>fg to generate"
+    echohl NONE
+endfunction
