@@ -89,7 +89,6 @@ let g:lightline = {
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
       \   'method': 'NearestMethodOrFunction',
-      \   'codecompanion': 'LightlineCodeCompanion',
       \   'fileformat': 'LightlineFileformat',
       \   'fileencoding': 'LightlineFileEncoding',
       \   'filetype': 'LightlineFiletype',

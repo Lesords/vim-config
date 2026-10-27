@@ -14,5 +14,5 @@ autocmd FileType python,shell,coffee setlocal commentstring=#\ %s
 autocmd FileType java,c,cpp          setlocal commentstring=//\ %s
 
 " ale
-let b:ale_linters           = {'c': ['gcc', 'cppcheck'], 'cpp': ['gcc', 'cppcheck'] }
+let g:ale_linters           = {'c': ['gcc', 'cppcheck'], 'cpp': ['gcc', 'cppcheck'] }
 let g:ale_echo_msg_format   = '[%linter%] %s [%severity%]'
