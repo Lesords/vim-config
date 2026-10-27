@@ -43,8 +43,8 @@ if v:progpath =~? 'exe'
     vnoremap <silent> <A-K> :call motion#Moveup_multlines()<CR>gv
     vnoremap <silent> <A-J> :call motion#Movedown_multlines()<CR>gv
 
-    noremap <silent> <A-t> :call ChangeCurrentPath()<CR>
-    noremap <silent> <A-i> :call ChangeLineStyle()<CR>
+    noremap <silent> <A-t> :call util#ChangeCurrentPath()<CR>
+    noremap <silent> <A-i> :call util#ChangeLineStyle()<CR>
 
     " Plugin
     nnoremap <silent> <A-d> :SignifyToggle<cr>
