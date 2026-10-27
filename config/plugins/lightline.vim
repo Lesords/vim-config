@@ -97,9 +97,7 @@ let g:lightline = {
       \ }
 
 " vista in lightline
-if exists('g:loaded_vista')
-    autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-endif
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 function! NearestMethodOrFunction() abort
     let method = get(b:, 'vista_nearest_method_or_function', '')
     return method != '' ? '   '.method : method

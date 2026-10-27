@@ -35,7 +35,7 @@ Plug 'voldikss/vim-floaterm', { 'on': ['FloatermToggle', 'FloatermNew', 'Floater
 
 if !exists('$MSYSTEM')
     Plug 'mhinz/vim-startify'
-    Plug 'liuchengxu/vista.vim', { 'on': 'Vista!!' }
+    Plug 'liuchengxu/vista.vim'
     Plug 'christoomey/vim-tmux-navigator'
 endif
 
