@@ -116,26 +116,26 @@ autocmd FileType c,cpp,objc vnoremap <silent> <leader>cf  :ClangFormat<CR>
 
 " Leaderf
 if has('python') || has('python3')
-    noremap <silent> <leader>ff  :<C-U><C-R>=printf("Leaderf file %s", "")<CR><CR>
-    noremap <silent> <leader>fb  :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-    noremap <silent> <leader>fm  :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-    noremap <silent> <leader>fw  :<C-U><C-R>=printf("Leaderf window %s", "")<CR><CR>
-    noremap <silent> <leader>fl  :<C-U><C-R>=printf("Leaderf line --no-auto-preview %s", "")<CR><CR>
+    noremap <silent> <leader>ff  :<C-U>call util#LeaderfSafe('Leaderf file')<CR>
+    noremap <silent> <leader>fb  :<C-U>call util#LeaderfSafe('Leaderf buffer')<CR>
+    noremap <silent> <leader>fm  :<C-U>call util#LeaderfSafe('Leaderf mru')<CR>
+    noremap <silent> <leader>fw  :<C-U>call util#LeaderfSafe('Leaderf window')<CR>
+    noremap <silent> <leader>fl  :<C-U>call util#LeaderfSafe('Leaderf line --no-auto-preview')<CR>
 
     noremap <silent> <leader>fa  :<C-U><C-R>=printf("Leaderf! rg --all-buffers -F -e %s ", expand("<cword>"))<CR>
     noremap <silent> <leader>fc  :<C-U><C-R>=printf("Leaderf! rg -F -e %s -g *.{h,c,cpp}", expand("<cword>"))<CR>
     noremap <silent> <leader>fs  :<C-U><C-R>=printf("Leaderf! rg --stayOpen --no-auto-preview --left -F -e \"%s\"", input("Please enter: "))<CR>
     noremap <silent> f         :<C-U><C-R>=printf("Leaderf! rg --no-auto-preview -F -e %s ", expand("<cword>"))<CR>
     xnoremap <silent> gf         :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
-    xnoremap <silent> gp         :<C-U><C-R>=printf("Leaderf! file --input %s ", leaderf#Rg#visual())<CR><CR>
-    noremap  <silent> go         :<C-U>Leaderf! rg --recall<CR>
+    xnoremap <silent> gp         :<C-U>call util#LeaderfSafe(printf("Leaderf! file --input %s ", leaderf#Rg#visual()))<CR>
+    noremap  <silent> go         :<C-U>call util#LeaderfSafe('Leaderf! rg --recall')<CR>
 
-    noremap <silent> <leader>fg  :Leaderf gtags --update<CR>
+    noremap <silent> <leader>fg  :<C-U>call util#LeaderfSafe('Leaderf gtags --update')<CR>
     noremap <silent> <leader>fr  :<C-U>call util#LeaderfGtagsQuery('-r')<CR>
     noremap <silent> <leader>fd  :<C-U>call util#LeaderfGtagsQuery('-d')<CR>
-    noremap <silent> <leader>fo  :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-    noremap <silent> <leader>fn  :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-    noremap <silent> <leader>fp  :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+    noremap <silent> <leader>fo  :<C-U>call util#LeaderfSafe('Leaderf! gtags --recall')<CR>
+    noremap <silent> <leader>fn  :<C-U>call util#LeaderfSafe('Leaderf gtags --next')<CR>
+    noremap <silent> <leader>fp  :<C-U>call util#LeaderfSafe('Leaderf gtags --previous')<CR>
 
     noremap <silent> <C-LeftMouse> :<C-U>call util#LeaderfGtagsQuery('-d')<CR>
 endif

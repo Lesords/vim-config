@@ -91,7 +91,7 @@ function! util#GetCurrentFile() abort
         echo "error: no file need to search"
         return
     endif
-    execute printf("Leaderf! file --input %s ", l:file)
+    call util#LeaderfSafe(printf("Leaderf! file --input %s ", l:file))
 endfunction
 
 function! util#WindowToggle()
@@ -121,6 +121,15 @@ function! util#OpenFern()
   endif
 endfunction
 
+" Run a :Leaderf command, swallowing the traceback printed when Ctrl-C
+" interrupts LeaderF's python state machine (E684 on a wiped buffer etc.)
+function! util#LeaderfSafe(cmd) abort
+    try
+        execute a:cmd
+    catch
+    endtry
+endfunction
+
 " Mirrors LeaderF gtagsExpl.py: GTAGS db lives under
 " ~/.cache/LeaderF/gtags/<project root, '/' replaced by '_'>(git projects only)
 function! util#LeaderfGtagsQuery(type) abort
@@ -133,7 +142,7 @@ function! util#LeaderfGtagsQuery(type) abort
         let l:db = expand('~/.cache/LeaderF/gtags/')
                     \ . substitute(l:root, '/', '_', 'g') . '/GTAGS'
         if filereadable(l:db)
-            execute printf("Leaderf! gtags %s %s --auto-jump", a:type, expand("<cword>"))
+            call util#LeaderfSafe(printf("Leaderf! gtags %s %s --auto-jump", a:type, expand("<cword>")))
             return
         endif
     endif
