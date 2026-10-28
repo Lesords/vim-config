@@ -9,9 +9,12 @@ let g:cpp_member_highlight     = 1
 let g:cpp_simple_highlight     = 1
 
 " vim-commentary
-autocmd FileType apache              setlocal commentstring=#\ %s
-autocmd FileType python,shell,coffee setlocal commentstring=#\ %s
-autocmd FileType java,c,cpp          setlocal commentstring=//\ %s
+augroup commentstring
+    autocmd!
+    autocmd FileType apache              setlocal commentstring=#\ %s
+    autocmd FileType python,shell,coffee setlocal commentstring=#\ %s
+    autocmd FileType java,c,cpp          setlocal commentstring=//\ %s
+augroup END
 
 " ale
 let g:ale_linters           = {'c': ['gcc', 'cppcheck'], 'cpp': ['gcc', 'cppcheck'] }
